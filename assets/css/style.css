@@ -1,0 +1,723 @@
+@import url('reset.css');
+
+body {
+    font-family: 'Vazir'
+}
+
+.container {
+    width: 75%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 45px;
+    padding-right: 45px
+}
+
+.row {
+    display: flex
+}
+
+.align {
+    align-items: center;
+    justify-content: center
+}
+
+.space {
+    justify-content: space-between
+}
+
+.headline {
+	font-size: 18px;
+	font-weight: bold
+}
+
+.paragraph {
+	font-size: 15px;
+	font-weight: 300;
+	line-height: 1.9rem
+}
+
+.header {
+    height: 70px;
+	padding: 10px 0
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 36px
+}
+
+.logo {
+	margin: 9px 0
+}
+
+.brand {
+	height: auto;
+	max-width: 100%
+}
+
+.nav-item {
+	padding: 27px 0;
+    display: inline-flex
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: 200;
+    color: #202020
+}
+
+.nav-link {
+    padding-right: 42px
+}
+
+.time {
+    margin: 4px 0;
+    position: relative
+}
+
+.season {
+    right: 0;
+	z-index: -1;
+    position: absolute;
+	background-size: cover;
+	background-image: url('../images/spring.jpg')
+}
+
+.season {
+    width: calc(100px * 6);
+    height: calc(100px * 6);
+    border-radius: 100% 0 0 0;
+    background-color: #cccccc
+}
+
+.clock_analog {
+    direction: ltr
+}
+
+.clock {
+	width: 400px;
+	padding: 45px 0 25px
+}
+
+#clockface {
+	position: relative
+}
+
+#clockface {
+	width: 340px;
+	height: 340px;
+	display: block;
+	overflow: hidden;
+	border-radius: 100%;
+	border: 15px #1c2833 solid;
+	box-shadow: 0 30px 60px 0 rgba(240, 243, 244, 60%)
+}
+
+.minutes {
+	top: 0;
+	left: 49.5%;
+	position: absolute
+}
+
+.minutes {
+	width: 2px;
+	height: 10px;
+	background: #ecf0f1;
+	transform-origin: 50% 170px
+}
+
+.fiveminutes {
+	top: 0px;
+	left: 49.5%;
+	position: absolute
+}
+
+.fiveminutes {
+	z-index: 1;
+	width: 2px;
+	height: 15px;	
+	background: #34495e;
+	transform-origin: 50% 170px
+}
+
+.hour {
+	top: 70px;
+	left: 49%;
+	position: absolute
+}
+
+.hour {
+	width: 4px;
+	height: 100px;
+	border-radius: 36px;
+	background: #34495e;
+	transform-origin: 49% 100px
+}
+
+.min {
+	top: 40px;
+	left: 48.5%;
+	position: absolute
+}
+
+.min {
+	width: 4px;
+	height: 140px;
+	border-radius: 36px;
+	background: #34495e;
+	transform-origin: 48.5% 131px
+}
+
+.sec {
+	top: 40px;
+	left: 49%;
+	position: absolute;
+}
+
+.sec {
+	width: 4px;
+	height: 160px;
+	border-radius: 30px;
+	background:  #e74c3c;
+	transform-origin: 49% 131px
+}
+
+.centerpoint {
+	top: 158px;
+	left: 158px;
+	position: absolute
+}
+
+.centerpoint {
+	width: 24px;
+	height: 24px;
+	border-radius: 36px;
+	background-color: #34495e
+}
+
+.numbers {
+	position: absolute
+}
+
+.numbers {
+	font-size: 14px
+}
+
+.one {
+	top: 45px;
+	left: 235px;
+}
+
+.two {
+	top: 90px;
+	left: 285px;
+}
+
+.three {
+	top: 165px;
+	left: 305px;
+}
+
+.four {
+	top: 235px;
+	left: 285px;
+}
+
+.five {
+	top: 283px;
+	left: 230px;
+}
+
+.six {
+	top: 300px;
+	left: 165px;
+}
+
+.seven {
+	top: 285px;
+	left: 100px;
+}
+
+.eight {
+	top: 238px;
+	left: 48px
+}
+
+.nine {
+	top: 165px;
+	left: 30px
+}
+
+.ten {
+	top: 95px;
+	left: 45px
+}
+
+.eleven {
+	top: 45px;
+	left: 90px
+}
+
+.twelve {
+	top: 25px;
+	left: 160px
+}
+
+.days_celander {
+	padding: 3px;
+	margin: 16px 0;
+	direction: rtl
+}
+
+.days_celander {
+	border-radius: 36px;
+	display: inline-flex;
+	border: 1px  #fadbd8  solid
+}
+
+.boxs_celander {
+	margin: 2px;
+	padding: 18px 21px
+}
+
+.iranian_date {
+	color: #ffffff;
+	border-radius: 36px;
+	background-color: #ec7063    
+}
+
+.iranian,
+.georagian {
+	font-size: 14px;
+	font-weight: normal
+}
+
+.georagian {
+	letter-spacing: 2px;
+	font-family: 'Dosis', Sans-Serif
+}
+
+.celander {
+	direction: rtl;
+	padding: calc(60px * 2) 0
+}
+
+.locale-fa {
+	width: 50%;
+	max-height: 400px
+}
+
+.other-month:nth-child(2),
+.header-row-cell:nth-child(2) {
+	color: #ec7063 !important
+}
+
+.table-days td:nth-child(2) span {
+	color: #ec7063 !important
+}
+
+.table-days td.selected:nth-child(2) span {
+	color: #ffffff !important;
+	background-color: #ec7063 !important
+}
+
+.holiday {
+	width: 50%;
+	max-height: 460px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	white-space: nowrap;
+	scrollbar-width: thin;
+    scrollbar-color: #eeeeee transparent
+}
+
+.holi_day {
+	padding-right: 45px
+}
+
+.holiday_name {
+	font-size: 16px;
+	font-weight: 300;
+	display: inline-block
+}
+
+.holiday_name {
+	padding: 15px;
+	margin: 10px 0;
+	border-radius: 6px;
+	background-color: #ffffff;
+	border: 1px  #fadbd8 solid
+}
+
+.holiday_item {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.9rem
+}
+
+.box {
+	margin-bottom: 45px
+}
+
+.item:nth-child(1) {
+	width: 70%;
+	border-left: 1px #eeeeee solid
+}
+
+.book {
+	min-height: 185px
+}
+
+.book_img {
+	max-width: 200px;
+	min-height: 185px
+}
+
+.book_img {
+	border-radius: 12px
+}
+
+.book_read {
+	padding-left: 30px;
+	margin-right: 30px
+}
+
+.headline {
+	color: #202020;
+	padding-top: 10px;
+	font-weight: normal;
+	padding-bottom: 15px
+}
+
+.paragraph {
+	color: #202020
+}
+
+.paragraph {
+	opacity: 90%;
+	text-align: justify
+}
+
+.item:nth-child(2) {
+	width: 30%
+}
+
+.download {
+	margin: 10px 0;
+	margin-right: 30px
+}
+
+.link {
+	display: flex;
+	padding: 16px;
+	font-weight: 300;
+	font-family: 'Vazir', 'Dosis', Sans-Serif
+}
+
+.link {
+	color: #fafafa;
+	border-radius: 3px
+}
+
+.download:nth-child(1) .link {
+	background-color: #58d68d
+}
+
+.download:nth-child(2) .link {
+	color: #202020;
+	background-color: #ffffff;
+	border: 1px #eeeeee solid
+}
+
+.download:nth-child(3) .link {
+	background-color: #ec7063
+}
+
+.swiper-button-prev {
+	right: unset !important;
+	left: 45px !important
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+	bottom: 30px;
+	top: unset !important;
+	width: 8px !important;
+	height: 8px !important;
+	color: #202020 !important
+  }
+
+  .pwt-btn {
+	font-size: 16px;
+	font-weight: 300 !important;
+  }
+
+  .datepicker-plot-area .toolbox {
+	display: none !important
+  }
+
+@media only screen and (max-width: 980px) {
+
+	.container {
+		width: 90%;
+		padding-left: 0;
+		padding-right: 0
+	}
+
+	.row {
+		display: block
+	}
+
+	.header {
+		height: auto
+	}
+
+	.logo {
+		margin: 10px auto
+	}
+
+	.navbar {
+		text-align: center
+	}
+
+	.season {
+		width: 70%;
+		height: 100%
+	}
+
+	.clock {
+		width: 100%
+	}
+	
+	#clockface {
+		width: 120px;
+		height: 120px;
+		border: 2px #1c2833 solid;
+	}
+	
+	.minutes {
+		top: 0;
+		left: 49.5%;
+		position: absolute
+	}
+	
+	.minutes {
+		width: 2px;
+		height: 4px;
+		background: #ecf0f1;
+		transform-origin: 49% 60px
+	}
+	
+	.fiveminutes {
+		top: 0;
+		left: 49.5%;
+		position: absolute
+	}
+	
+	.fiveminutes {
+		z-index: 1;
+		width: 2px;
+		height: 6px;	
+		background: #34495e;
+		transform-origin: 50% 60px
+	}
+	
+	.hour {
+		top: 10px;
+		left: 60%
+	}
+	
+	.hour {
+		width: 2px;
+		height: 25px;
+		border-radius: 10px;
+		transform-origin: 49.5% 40px
+	}
+	
+	.min {
+		top: 21px;
+		left: 49.5%
+	}
+	
+	.min {
+		width: 2px;
+		height: 40px;
+		border-radius: 10px;
+		transform-origin: 49.5% 40px
+	}
+	
+	.sec {
+		top: 21px;
+		left: 49.5%
+	}
+	
+	.sec {
+		width: 2px;
+		height: 40px;
+		transform-origin: 49.5% 40px
+	}
+	
+	.centerpoint {
+		top: 55px;
+		left: 55px;
+		position: absolute
+	}
+	
+	.centerpoint {
+		width: 12px;
+		height: 12px
+	}
+	
+	.numbers {
+		position: absolute
+	}
+	
+	.numbers {
+		font-size: 9px
+	}
+	
+	.one {
+		display: none
+	}
+	
+	.two {
+		display: none
+	}
+	
+	.three {
+		top: 57px;
+		left: 102px;
+	}
+	
+	.four {
+		display: none
+	}
+	
+	.five {
+		display: none
+	}
+	
+	.six {
+		top: 100px;
+		left: 58px;
+	}
+	
+	.seven {
+		display: none
+	}
+	
+	.eight {
+		display: none
+	}
+	
+	.nine {
+		top: 57px;
+		left: 12px
+	}
+	
+	.ten {
+		display: none
+	}
+	
+	.eleven {
+		display: none
+	}
+
+	.twelve {
+		top: 12px;
+		left: 55px
+	}
+
+	.days_celander {
+		margin: 0;
+		padding: 0 9px
+	}
+
+	.days_celander .row {
+		display: flex
+	}
+	
+	.days_celander {
+		margin: 30px 0;
+		border-radius: 100px;
+		background-color: #ffffff;
+		border: 1px #ffffff solid
+	}
+	
+	.boxs_celander {
+		margin: 0;
+		padding: 21px
+	}
+	
+	.iranian_date {
+		color: #ffffff;
+		border-radius: 100px   
+	}
+	
+	.iranian,
+	.georagian {
+		font-size: 14px;
+		font-weight: normal
+	}
+	
+	.georagian {
+		letter-spacing: 2px;
+		font-family: 'Dosis', Sans-Serif
+	}
+	
+	.celander {
+		direction: rtl;
+		padding: calc(10px * 2) 0
+	}
+
+	.boxs_celander {
+		margin: 10px auto
+	}
+	
+	.locale-fa {
+		overflow: hidden;
+		width: 100% !important
+	}
+
+	.holiday {
+		width: 100%;
+		margin: 15px 0
+	}
+
+	.holi_day {
+		padding: 20px 0;
+		padding-right: 0
+	}
+
+	.item {
+		width: 100% !important;
+		border-left: none !important
+	}
+
+	.book_img {
+		display: block;
+		max-width: 60%;
+		min-height: 60%;
+		margin: 30px auto
+	}
+	
+	.book_img {
+		border-radius: 12px
+	}
+	
+	.book_read {
+		padding-left: 30px;
+		margin-right: 30px
+	}
+	.download {
+		margin-right: 0
+	}
+}
+
+@media only screen and (max-width: 340px) { 
+	#clockface {
+		display: none
+	}
+}

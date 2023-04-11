@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/persian-datepicker.css" />
+    <title>گاهشمار ۲۷۰۲</title>
+</head>
+<body>
+    
+    <header class="header row">
+        <div class="container">
+            <div class="row space">
+
+                <div class="logo">
+                    <img src="assets/images/logo.png" class="brand" alt="" />
+                </div>
+
+                <nav class="navbar">
+                    <div class="nav-collapse">
+                        <ul class="nav-navbar">
+                            <li class="nav-item"><a href="#" class="nav-link">صفحه اصلی</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">از تقویم ایرانی بیشتر بدانیم</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>         
+        </div>
+    </header>
+
+    <div class="time">
+        <div class="container">
+
+            <div class="season"></div>
+
+            <div class="clock_analog">
+
+                <div class="clock">
+                    <div id="clockface">
+                        <div class="hand hour"></div>
+                        <div class="hand min"></div>
+                        <div class="hand sec"></div>
+                        <div class="centerpoint"></div>
+                            <div class="numbers one">1</div>
+                            <div class="numbers two">2</div>
+                            <div class="numbers three">3</div>
+                            <div class="numbers four">4</div>
+                            <div class="numbers five">5</div>
+                            <div class="numbers six">6</div>
+                            <div class="numbers seven">7</div>
+                            <div class="numbers eight">8</div>
+                            <div class="numbers nine">9</div>
+                            <div class="numbers ten">10</div>
+                            <div class="numbers eleven">11</div>
+                            <div class="numbers twelve">12</div>	
+                        <div class="fiveminutes"></div>
+                        <div class="minutes"></div>
+                    </div>
+                </div>
+
+                <div class="days_celander">
+                    <div class="row">
+
+                        <div class="boxs_celander iranian_date">
+                            <span class="iranian" id="iranian">۱۵ فروردین ۲۷۰۲</span>
+                        </div>
+
+                        <div class="boxs_celander">
+                            <span class="georagian" id="georagian"></span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="celander">
+        <div class="container">
+            <div class="row">
+
+                <div class="locale-fa"></div>
+
+                <div class="holiday"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="container">
+            <div class="row">
+
+                <div class="item">
+                    <div class="book">
+                        <div class="row">
+                            <img src="assets/images/book.jpg" class="book_img" />
+                            <div class="book_read">
+                                <h3 class="headline">کتاب رفیق آیت الله</h3>
+                                <h4>
+                                    <p class="paragraph">
+                                        کتاب رفیق آیت الله در ده فصل و هفتصد صفحه، به بررسی اسنادی می پردازد که نقش کلیدی سازمان امنیت شوروی در طراحی و سازماندهی انقلاب اسلامی در بهمن ۱۳۵۷ را آشکار می کند. این کتاب همچنین از کمک های آشکار و پنهان این سازمان مخوف برای رسیدن سید علی خامنه ای به مقام ولی مطلقه فقیه در ایران، پرده بر می دارد. در هر یک از فصل های ده گانه این کتاب با یکی از رازهای سر به مهر و معما های ترسناک در تاریخ انقلاب اسلامی در ایران مواجه خواهید بود که علاوه بر رمز گشایی از این اسرار، طرح پیچیده سازمان امنیت شوروی در استفاده از روحانیون برای روشن کردن آتش انقلاب و سرنگونی شاه بررسی خواهد شد.
+                                    </p>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="download">
+                        <a href="#" class="link align">سفارش تقویم ۲۷۰۲ ایرانی</a>
+                    </div>
+                    <div class="download">
+                        <a href="#" class="link align">تقویم چاپی سال ۲۷۰۲ ایرانی - A3</a>
+                    </div>
+                    <div class="download">
+                        <a href="#" class="link align">تقویم چاپی سال ۲۷۰۲ ایرانی - A4</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/persian-date.js"></script>
+    <script src="assets/js/persian-datepicker.js"></script>
+    <script type="text/javascript">
+    $('.locale-fa').persianDatepicker({
+        inline: true,
+    });
+    </script>
+
+</body>
+</html>
