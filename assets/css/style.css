@@ -483,7 +483,7 @@ body {
 	}
 
 	.season {
-		width: 70%;
+		width: 100%;
 		height: 100%
 	}
 
@@ -506,13 +506,13 @@ body {
 	.minutes {
 		width: 2px;
 		height: 4px;
-		background: #ecf0f1;
-		transform-origin: 49% 60px
+		transform-origin: 49.5% 60px;
+		background: rgba(0, 0, 0, 5%)
 	}
 	
 	.fiveminutes {
 		top: 0;
-		left: 49.5%;
+		left: 50%;
 		position: absolute
 	}
 	
@@ -523,17 +523,17 @@ body {
 		background: #34495e;
 		transform-origin: 50% 60px
 	}
-	
+
 	.hour {
-		top: 10px;
-		left: 60%
+		top: 40px;
+		left: 49.9%;
+		position: absolute
 	}
 	
 	.hour {
 		width: 2px;
 		height: 25px;
-		border-radius: 10px;
-		transform-origin: 49.5% 40px
+		transform-origin: 49.9% 20px
 	}
 	
 	.min {
@@ -632,23 +632,31 @@ body {
 
 	.days_celander {
 		margin: 0;
-		padding: 0 9px
+		padding: 0;
+		width: 100%
 	}
 
 	.days_celander .row {
-		display: flex
+		display: block;
+		margin: 0 auto
 	}
 	
 	.days_celander {
-		margin: 30px 0;
-		border-radius: 100px;
-		background-color: #ffffff;
-		border: 1px #ffffff solid
+		border: none;
+		margin: 30px auto;
+		border-radius: 10px;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		background: rgba(255, 255, 255, .90)
 	}
 	
 	.boxs_celander {
 		margin: 0;
 		padding: 21px
+	}
+	
+	.iranian_date {
+		border-radius: 10px !important   
 	}
 	
 	.iranian_date {
@@ -716,7 +724,7 @@ body {
 	}
 }
 
-@media only screen and (max-width: 400px) { 
+@media only screen and (max-width: 340px) { 
 	#clockface {
 		display: none
 	}
