@@ -435,19 +435,15 @@ body {
 	background-color: #ec7063
 }
 
-.swiper-button-prev {
-	right: unset !important;
-	left: 45px !important
-  }
+.footer {
+	text-align: center
+}
 
-  .swiper-button-next,
-  .swiper-button-prev {
-	bottom: 30px;
-	top: unset !important;
-	width: 8px !important;
-	height: 8px !important;
-	color: #202020 !important
-  }
+.copyright {
+	color: #202020;
+	font-size: 16px;
+	font-weight: 300
+}
 
   .pwt-btn {
 	font-size: 16px;
