@@ -452,6 +452,19 @@ body {
 	font-weight: 300
 }
 
+.bitcoin {
+	display: block;
+	margin: 112px 0;
+	padding: 6px 12px
+}
+
+.bitcoin {
+	font-size: 13px;
+	font-weight: 300;
+	letter-spacing: 3px;
+	background-color: #fcf3cf
+}
+
   .pwt-btn {
 	font-size: 16px;
 	font-weight: 300 !important;
