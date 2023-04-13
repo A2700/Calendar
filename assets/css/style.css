@@ -435,38 +435,6 @@ body {
 	background-color: #ec7063
 }
 
-.footer,
-.copyright {
-	display: block;
-	margin: 0 auto
-}
-
-.footer,
-.copyright {
-	font-weight: 200;
-	text-align: center
-}
-
-.copyright {
-	color: #e74c3c;
-	font-size: 16px;
-	text-decoration: underline
-}
-
-.bitcoin {
-	margin: 12px;
-	display: block;
-	padding: 16px 12px
-}
-
-.bitcoin {
-	font-size: 13px;
-	font-weight: 300;
-	letter-spacing: 1px;
-	border-radius: 100px;
-	background-color: #fcf3cf
-}
-
   .pwt-btn {
 	font-size: 16px;
 	font-weight: 300 !important;
