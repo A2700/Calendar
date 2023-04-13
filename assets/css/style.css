@@ -449,7 +449,8 @@ body {
 
 .copyright {
 	color: #e74c3c;
-	font-size: 16px
+	font-size: 16px;
+	text-decoration: underline
 }
 
 .bitcoin {
