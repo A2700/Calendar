@@ -453,9 +453,9 @@ body {
 }
 
 .bitcoin {
+	padding: 12px;
 	display: block;
-	margin: 112px 0;
-	padding: 6px 12px
+	margin: 12px 0
 }
 
 .bitcoin {
@@ -737,11 +737,5 @@ body {
 	}
 	.download {
 		margin-right: 0
-	}
-}
-
-@media only screen and (max-width: 340px) { 
-	#clockface {
-		display: none
 	}
 }
