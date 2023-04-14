@@ -1,15 +1,23 @@
 @import url('reset.css');
 
 body {
-    font-family: 'Vazir'
+    font-family: 'Vazir';
+	background-color: var(--white)
+}
+
+.nightmode {
+	background-color: var(--bg-dark)
 }
 
 .container {
     width: 75%;
     max-width: 100%;
     margin-left: auto;
-    margin-right: auto;
-    padding-left: 45px;
+    margin-right: auto
+}
+
+.container {
+	padding-left: 45px;
     padding-right: 45px
 }
 
@@ -22,166 +30,420 @@ body {
     justify-content: center
 }
 
-.space {
-    justify-content: space-between
-}
-
 .headline {
 	font-size: 18px;
 	font-weight: bold
 }
 
 .paragraph {
-	font-size: 15px;
+	font-size: 16px;
 	font-weight: 300;
-	line-height: 1.9rem
+	line-height: 2rem
 }
 
 .header {
     height: 70px;
-	padding: 10px 0
+	padding: 16px 0
 }
 
 .logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 36px
+	width: 10%
 }
 
 .logo {
-	margin: 9px 0
+    height: 50px
 }
 
 .brand {
-	height: auto;
+	height: 50px;
 	max-width: 100%
 }
 
+.navbar {
+	width: 85%;
+	text-align: left
+}
+
+.nav-navbar {
+	padding-left: 16px
+}
+
 .nav-item {
-	padding: 27px 0;
+	position: relative;
     display: inline-flex
 }
 
 .nav-link {
     font-size: 16px;
     font-weight: 200;
-    color: #202020
+	padding: 12px 24px;
+	font-family: 'Dotis';
+    color: var(--text-color)
 }
 
-.nav-link {
-    padding-right: 42px
+.nightmode .nav-link {
+	color: var(--text-color-dark)
 }
 
-.time {
-    margin: 4px 0;
-    position: relative
+.gift::after {
+	margin-left: 9px;	
+	transition: .3s all ease-in-out
 }
 
-.season {
-    right: 0;
-	z-index: -1;
-    position: absolute;
-	background-size: cover;
-	background-image: url('../images/spring.jpg')
+.gift::after {
+	content: '\f107';
+	font-family: 'FontAwesome'
 }
 
-.season {
-    width: calc(100px * 6);
-    height: calc(100px * 6);
-    border-radius: 100% 0 0 0;
-    background-color: #cccccc
+.dropdown {
+	top: 40px;
+	left: 20px;
+	width: 200px;
+	display: none;
+	position: absolute
 }
 
-.clock_analog {
-    direction: ltr
+.dropdown {
+	padding: 24px;
+	border-radius: 12px;
+	background-color: var(--white);
+	border: 2px var(--border-gray) solid
 }
 
-.clock {
-	width: 400px;
-	padding: 45px 0 25px
+.nightmode .dropdown {
+	border-color: var(--border-dark);
+	background-color: var(--border-dark);
 }
 
-#clockface {
+.nav-item:hover .dropdown {
+	z-index: 99;
+	display: block
+}
+
+.crypto {
+	padding-bottom: 3px
+}
+
+.barcode {
+	width: 200px;
+	height: 200px;
+	border-radius: 12px;
+	background-color: var(--white)
+}
+
+.bitcoin-qr {
+	height: auto;
+	max-width: 100%
+}
+
+.pay {
+	padding: 12px
+}
+
+.code {
+	display: block;
+	padding: 14px 0;
+	overflow: hidden;
 	position: relative
 }
 
-#clockface {
+.code {
+	font-size: 14px;
+	font-weight: 300;
+	color: var(--text-color)
+}
+
+.nightmode .code {
+	color: var(--text-color-dark)
+}
+
+.wallet {
+	height: 40px;
+	overflow: hidden;
+	border-radius: 36px;
+	background-color: var(--white);
+	border: 1px var(--border-gray) solid
+}
+
+.nightmode .wallet {
+	border-color: var(--border-dark);
+	background-color: var(--bg-dark)
+}
+
+.wallet {
+	position: relative;
+	padding-right: 12px;
+	letter-spacing: 2px;
+	white-space: nowrap;
+	text-transform: uppercase
+}
+
+.bitcoin {
+	width: 40px;
+	height: 40px;
+	position: relative;
+	background-color: var(--yellow)
+}
+
+.bitcoin {
+	float: left;
+	margin-right: 16px
+}
+
+.bitcoin::before {
+	top: 12px;
+	right: 11px;
+	position: absolute
+}
+
+.bitcoin::before {
+	content: '\f15a';
+	font-family: 'FontAwesome'
+}
+
+.channel {
+	height: 30px;
+	padding: 3px;
+	border-radius: 36px;
+	background-color: var(--telegram);
+	border: 1px var(--telegram) solid
+}
+
+.nightmode .channel {
+	border-color: var(--telegram)
+}
+
+.channel {
+	overflow: hidden
+}
+
+.icon {
+	width: 30px;
+	height: 30px
+}
+
+.icon {
+	float: right;
+	font-size: 21px;
+	margin-left: 6px;
+	position: relative
+}
+
+.icon::before {
+	top: 5px;
+	right: 5px;
+	position: absolute;
+	color: var(--white)
+}
+
+.icon::before {
+	content: '\f2c6';
+	font-family: 'FontAwesome'
+}
+
+.telegram {
+	display: block;
+	padding: 8px 0
+}
+
+.telegram {
+	font-size: 14px;
+	font-weight: 300;
+	text-align: right;
+	color: var(--white);
+}
+
+.copy {
+	direction: rtl;
+	padding: 12px 0 0
+}
+
+.copy .paragraph {
+	font-size: 13px;
+	line-height: 1.9rem;
+	color: var(--text-color)
+}
+
+.nightmode .copy .paragraph {
+	color: var(--text-color-dark)
+}
+
+.darkmode {
+	width: 5%
+}
+
+.dark {
+	width: 40px;
+	height: 40px;
+	border-radius: 36px;
+	background-color: var(--bg-dark)
+}
+
+.nightmode .dark {
+	background-color: var(--border-dark)
+}
+
+.dark {
+	float: left;
+	cursor: pointer;
+	position: relative;
+	transition: .6s all ease-in-out
+}
+
+.dark {
+	font-size: 21px;
+	color: var(--white)
+}
+
+.dark:hover {
+	transform: rotateY(360deg)
+}
+
+.dark::before {
+	top: 10px;
+	left: 12px;
+	position: absolute
+}
+
+.dark::before {
+	content: '\f186';
+	font-family: 'FontAwesome'
+}
+
+.season {
+	top: -10%;
+	right: -5%;
+	z-index: -1;
+    position: absolute
+}
+
+.season {
+	width: calc(100px * 8);
+    height: calc(100px * 9)
+}
+
+.season {
+	background-size: cover;
+	background-color: var(--gray);
+	border-radius: 100% 30% 40% 60%;
+	background-image: url('../images/spring.jpg')
+}
+
+.time {
+	direction: ltr
+}
+
+.clock {
+	padding-top: 10px;
+	padding-bottom: 20px
+}
+
+#analog {
 	width: 340px;
 	height: 340px;
-	display: block;
 	overflow: hidden;
+	position: relative
+}
+
+#analog {
+	display: block;
 	border-radius: 100%;
-	border: 15px #1c2833 solid;
-	box-shadow: 0 30px 60px 0 rgba(240, 243, 244, 60%)
+	border: 15px var(--black) solid
+}
+
+.nightmode  #analog {
+	border-width: 5px;
+	border-color: var(--yellow);
+	background-color: var(--border-dark)
 }
 
 .minutes {
 	top: 0;
 	left: 49.5%;
-	position: absolute
+	position: absolute;
+	transform-origin: 50% 170px
 }
 
 .minutes {
 	width: 2px;
 	height: 10px;
-	background: #ecf0f1;
-	transform-origin: 50% 170px
+	background-color: var(--gray)
+}
+
+.nightmode .minutes {
+	width: .6px;
+	opacity: 20%;
+	background-color: var(--white);
 }
 
 .fiveminutes {
-	top: 0px;
+	top: 0;
 	left: 49.5%;
-	position: absolute
+	position: absolute;
+	transform-origin: 50% 170px
 }
 
 .fiveminutes {
 	z-index: 1;
-	width: 2px;
+	width: 1px;
 	height: 15px;	
-	background: #34495e;
-	transform-origin: 50% 170px
+	background-color: var(--black)
+}
+
+.nightmode .fiveminutes {
+	width: .9px;
+	opacity: 30%;
+	background-color: var(--white)
 }
 
 .hour {
 	top: 70px;
 	left: 49%;
-	position: absolute
+	position: absolute;
+	transform-origin: 49% 100px
 }
 
 .hour {
 	width: 4px;
 	height: 100px;
 	border-radius: 36px;
-	background: #34495e;
-	transform-origin: 49% 100px
+	background-color: var(--black)
+}
+
+.nightmode .hour {
+	background-color: var(--white)
 }
 
 .min {
 	top: 40px;
 	left: 48.5%;
-	position: absolute
+	position: absolute;
+	transform-origin: 48.5% 131px
 }
 
 .min {
 	width: 4px;
 	height: 140px;
 	border-radius: 36px;
-	background: #34495e;
-	transform-origin: 48.5% 131px
+	background-color: var(--black)
+}
+
+.nightmode .min {
+	background-color: var(--white)
 }
 
 .sec {
 	top: 40px;
 	left: 49%;
 	position: absolute;
+	transform-origin: 49% 131px
 }
 
 .sec {
 	width: 4px;
 	height: 160px;
 	border-radius: 30px;
-	background:  #e74c3c;
-	transform-origin: 49% 131px
+	background-color: var(--red)
 }
 
 .centerpoint {
@@ -194,7 +456,11 @@ body {
 	width: 24px;
 	height: 24px;
 	border-radius: 36px;
-	background-color: #34495e
+	background-color: var(--black)
+}
+
+.nightmode .centerpoint {
+	background-color: var(--white)
 }
 
 .numbers {
@@ -205,39 +471,43 @@ body {
 	font-size: 14px
 }
 
+.nightmode .numbers {
+	color: var(--white)
+}
+
 .one {
 	top: 45px;
-	left: 235px;
+	left: 235px
 }
 
 .two {
 	top: 90px;
-	left: 285px;
+	left: 285px
 }
 
 .three {
 	top: 165px;
-	left: 305px;
+	left: 305px
 }
 
 .four {
 	top: 235px;
-	left: 285px;
+	left: 285px
 }
 
 .five {
 	top: 283px;
-	left: 230px;
+	left: 230px
 }
 
 .six {
 	top: 300px;
-	left: 165px;
+	left: 165px
 }
 
 .seven {
 	top: 285px;
-	left: 100px;
+	left: 100px
 }
 
 .eight {
@@ -265,42 +535,55 @@ body {
 	left: 160px
 }
 
-.days_celander {
-	padding: 3px;
-	margin: 16px 0;
-	direction: rtl
-}
-
-.days_celander {
-	border-radius: 36px;
+.todays {
+	direction: rtl;
+	margin-top: 20px;
 	display: inline-flex;
-	border: 1px  #fadbd8  solid
+	border: 2px var(--border-gray) solid
 }
 
-.boxs_celander {
-	margin: 2px;
-	padding: 18px 21px
+.todays {
+	overflow: hidden;
+	border-radius: 6px;
+	margin-left: -30px;
+	background-color: var(--white)
 }
 
-.iranian_date {
-	color: #ffffff;
-	border-radius: 36px;
-	background-color: #ec7063    
+
+.nightmode .todays {
+	border-width: 1px;
+	color: var(--text-color-dark);
+	border-color: var(--border-dark);
+	background-color: var(--border-dark)
 }
 
-.iranian,
+.item-today {
+	padding: calc(3px * 6) 24px
+}
+
+.active {
+	color: var(--text-color);
+	background-color: var(--border-gray)
+}
+
+.nightmode .active {
+	color: var(--text-color-dark);
+	background-color: var(--bg-dark)
+}
+
+.iranian {
+	font-size: 16px;
+	font-weight: 300
+}
+
 .georagian {
-	font-size: 14px;
-	font-weight: normal
-}
-
-.georagian {
-	letter-spacing: 2px;
-	font-family: 'Dosis', Sans-Serif
+	font-size: 16px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	font-family: 'Dosis'
 }
 
 .celander {
-	direction: rtl;
 	padding: calc(60px * 2) 0
 }
 
@@ -309,145 +592,290 @@ body {
 	max-height: 400px
 }
 
+.holiday {
+	width: 50%;
+	max-height: 460px
+}
+
+.nightmode .datepicker-plot-area {
+	color: var(--text-color-dark) !important;
+	background-color: var(--bg-dark) !important
+}
+
+.nightmode .datepicker-navigator .pwt-btn-switch {
+	color: var(--text-color-dark) !important;
+	background-color: var(--bg-dark) !important
+}
+
+.nightmode .datepicker-navigator .pwt-btn-next,
+.nightmode .datepicker-navigator .pwt-btn-prev {
+	background-color: var(--yellow) !important
+}
+
+.nightmode .datepicker-plot-area .datepicker-day-view .table-days td span,
+.nightmode .datepicker-plot-area .datepicker-year-view .year-item,
+.nightmode .datepicker-plot-area .datepicker-month-view .month-item {
+	background-color: var(--dark) !important
+}
+
+.nightmode .datepicker-plot-area .datepicker-day-view .table-days td {
+	color: var(--white) !important;
+	background-color: var(--bg-dark) !important
+}
+
+.nightmode .datepicker-plot-area .datepicker-day-view .table-days td.today span {
+	color: var(--text-color) !important;
+	background-color: var(--yellow) !important
+}
+
+.nightmode .datepicker-plot-area .datepicker-day-view .table-days td.selected span,
+.nightmode .datepicker-plot-area .datepicker-year-view .year-item.selected,
+.nightmode .datepicker-plot-area .datepicker-month-view .month-item.selected {
+	color: var(--text-color-dark) !important;
+	background-color: var(--red) !important
+}
+
 .other-month:nth-child(2),
 .header-row-cell:nth-child(2) {
-	color: #ec7063 !important
+    color: var(--red) !important
+}
+
+.nightmode .other-month:nth-child(1),
+.nightmode .header-row-cell:nth-child(1),
+.nightmode .other-month:nth-child(3),
+.nightmode .header-row-cell:nth-child(3),
+.nightmode .other-month:nth-child(4),
+.nightmode .header-row-cell:nth-child(4),
+.nightmode .other-month:nth-child(5),
+.nightmode .header-row-cell:nth-child(5),
+.nightmode .other-month:nth-child(6),
+.nightmode .header-row-cell:nth-child(6),
+.nightmode .other-month:nth-child(7),
+.nightmode .header-row-cell:nth-child(7) {
+	color: var(--white) !important
+}
+
+
+.nightmode .other-month:nth-child(2),
+.nightmode .header-row-cell:nth-child(2) {
+    color: var(--yellow) !important
 }
 
 .table-days td:nth-child(2) span {
-	color: #ec7063 !important
+	color: var(--red) !important
+}
+
+.nightmode .table-days td:nth-child(1) span,
+.nightmode .table-days td:nth-child(3) span,
+.nightmode .table-days td:nth-child(4) span,
+.nightmode .table-days td:nth-child(5) span,
+.nightmode .table-days td:nth-child(6) span,
+.nightmode .table-days td:nth-child(7) span {
+    color: var(--gray) !important
+}
+
+.nightmode .table-days td:nth-child(2) span {
+    color: var(--yellow) !important
 }
 
 .table-days td.selected:nth-child(2) span {
-	color: #ffffff !important;
-	background-color: #ec7063 !important
+	color: var(--white) !important
 }
 
+.nightmode .table-days td.selected:nth-child(2) span {
+    color: var(--red) !important
+}
+
+/* ScrollBar */
+
 .holiday {
-	width: 50%;
-	max-height: 460px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	white-space: nowrap;
 	scrollbar-width: thin;
-    scrollbar-color: #eeeeee transparent
+    scrollbar-color: var(--border-gray) transparent
 }
 
-.holi_day {
+.nightmode .holiday {
+	scrollbar-color: var(---dark)
+}
+
+/* End ScrollBar */
+
+#holiday {
 	padding-right: 45px
 }
 
-.holiday_name {
+.holiday_header {
 	font-size: 16px;
 	font-weight: 300;
 	display: inline-block
 }
 
-.holiday_name {
+.holiday_header {
 	padding: 15px;
-	margin: 10px 0;
-	border-radius: 6px;
-	background-color: #ffffff;
-	border: 1px  #fadbd8 solid
+	margin: 10px 0
 }
 
-.holiday_item {
+.holiday_header {
+	border-radius: 6px;
+	background-color: var(--white);
+	border: 1px var(--border-gray) solid
+}
+
+.nightmode .holiday_header {
+	color: var(--text-color-dark);
+	border-color: var(--border-dark);
+	background-color: var(--bg-dark)
+}
+
+.holiday_text {
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 1.9rem
 }
 
-.box {
-	margin-bottom: 45px
+.nightmode .holiday_text {
+	color: var(--text-color-dark)
 }
 
-.item:nth-child(1) {
+.footer {
+	padding-bottom: 45px
+}
+
+.books {
 	width: 70%;
-	border-left: 1px #eeeeee solid
-}
-
-.book {
 	min-height: 185px
 }
 
-.book_img {
+.bookreader {
+	border-left: 1px var(--border-gray) solid
+}
+
+.nightmode .bookreader {
+	border-color: var(--border-dark)
+}
+
+.thumbnail {
 	max-width: 200px;
-	min-height: 185px
-}
-
-.book_img {
+	min-height: 185px;
 	border-radius: 12px
 }
 
-.book_read {
+.reader {
 	padding-left: 30px;
 	margin-right: 30px
 }
 
 .headline {
-	color: #202020;
 	padding-top: 10px;
-	font-weight: normal;
-	padding-bottom: 15px
+	padding-bottom: 15px;
+	color: var(--text-color)
+}
+
+.nightmode .headline {
+	color: var(--text-color-dark)
 }
 
 .paragraph {
-	color: #202020
+	opacity: 65%;
+	text-align: justify;
+	color: var(--text-color)
 }
 
-.paragraph {
-	opacity: 90%;
-	text-align: justify
+.nightmode .paragraph {
+	color: var(--text-color-dark)
 }
 
-.item:nth-child(2) {
-	width: 30%
+.boxs {
+	width: 30%;
+}
+
+.box {
+	margin-right: 30px;
+	margin-bottom: 20px
+}
+
+.click {
+	text-align: center;
+	margin-bottom: 10px
 }
 
 .download {
-	margin: 10px 0;
+	display: block;
+	font-size: 16px;
+	font-weight: 300;
+	padding: calc(2px * 8)
+}
+
+.download {
+	border-radius: 6px;
+	color: var(--text-color);
+	transition: .2s all ease-in-out;
+	border: 2px var(--border-gray) solid
+}
+
+.nightmode .download {
+	color: var(--text-color-dark);
+	border-color: var(--border-dark);
+}
+
+.download:hover {
+	color: var(--white)
+}
+
+.click:hover:nth-child(1) .download {
+	border-color: var(--green);
+	background-color: var(--green)
+}
+
+.click:hover:nth-child(2) .download {
+	color: var(--text-color)
+}
+
+.click:hover:nth-child(2) .download {
+	border-color: var(--gray);
+	background-color: var(--white)
+}
+
+.click:hover:nth-child(3) .download{
+	border-color: var(--red);
+	background-color: var(--red)
+}
+
+.copyright {
 	margin-right: 30px
 }
 
-.link {
-	display: flex;
-	padding: 16px;
-	font-weight: 300;
-	font-family: 'Vazir', 'Dosis', Sans-Serif
+.copyright
+.paragraph {
+	font-size: 14px
 }
 
-.link {
-	color: #fafafa;
-	border-radius: 3px
+.github {
+	color: var(--text-color)
 }
 
-.download:nth-child(1) .link {
-	background-color: #58d68d
+.nightmode .github {
+	color: var(--text-color-dark)
 }
 
-.download:nth-child(2) .link {
-	color: #202020;
-	background-color: #ffffff;
-	border: 1px #eeeeee solid
+.github:hover {
+	color: var(--blue)
 }
 
-.download:nth-child(3) .link {
-	background-color: #ec7063
+.website {
+	color: var(--text-color);
+	text-transform: capitalize
 }
 
-  .pwt-btn {
-	font-size: 16px;
-	font-weight: 300 !important;
-  }
-
-  .datepicker-plot-area .toolbox {
-	display: none !important
-  }
+.nightmode .website {
+	color: var(--text-color-dark)
+}
 
 @media only screen and (max-width: 980px) {
-
 	.container {
-		width: 90%;
+		width: 100%;
 		padding-left: 0;
 		padding-right: 0
 	}
@@ -457,30 +885,32 @@ body {
 	}
 
 	.header {
-		height: auto
+		padding: 0 25px
+	}
+
+	.header
+	.row {
+		display: flex
 	}
 
 	.logo {
-		margin: 10px auto
-	}
-
-	.navbar {
-		text-align: center
+		margin: 10px
 	}
 
 	.season {
-		width: 100%;
-		height: 100%
+		width: calc(100px * 3);
+		height: calc(100px * 4)
 	}
 
 	.clock {
-		width: 100%
+		margin-top: 16px;
+		margin-left: 14px
 	}
 	
-	#clockface {
+	#analog {
 		width: 120px;
 		height: 120px;
-		border: 2px #1c2833 solid;
+		border-width: 3px
 	}
 	
 	.minutes {
@@ -492,8 +922,7 @@ body {
 	.minutes {
 		width: 2px;
 		height: 4px;
-		transform-origin: 49.5% 60px;
-		background: rgba(0, 0, 0, 5%)
+		transform-origin: 49.5% 60px
 	}
 	
 	.fiveminutes {
@@ -506,7 +935,6 @@ body {
 		z-index: 1;
 		width: 2px;
 		height: 6px;	
-		background: #34495e;
 		transform-origin: 50% 60px
 	}
 
@@ -616,81 +1044,52 @@ body {
 		left: 55px
 	}
 
-	.days_celander {
-		margin: 0;
-		padding: 0;
-		width: 100%
-	}
-
-	.days_celander .row {
+	.todays {
 		display: block;
-		margin: 0 auto
-	}
-	
-	.days_celander {
-		border: none;
-		margin: 30px auto;
-		border-radius: 10px;
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		background: rgba(255, 255, 255, .90)
-	}
-	
-	.boxs_celander {
-		margin: 0;
-		padding: 21px
-	}
-	
-	.iranian_date {
-		border-radius: 10px !important   
-	}
-	
-	.iranian_date {
-		color: #ffffff;
-		border-radius: 100px   
-	}
-	
-	.iranian,
-	.georagian {
-		font-size: 14px;
-		font-weight: normal
-	}
-	
-	.georagian {
-		letter-spacing: 2px;
-		font-family: 'Dosis', Sans-Serif
+		margin-left: 0;
+		margin: 30px 20px;
+		text-align: center
 	}
 	
 	.celander {
 		direction: rtl;
-		padding: calc(10px * 2) 0
+		padding: 0 20px
 	}
 
-	.boxs_celander {
-		margin: 10px auto
-	}
-	
 	.locale-fa {
-		overflow: hidden;
-		width: 100% !important
+		width: 100%
 	}
 
 	.holiday {
-		width: 100%;
-		margin: 15px 0
+		width: 100%
 	}
 
-	.holi_day {
+	.holiday {
+		margin: 30px 0;
+		margin-bottom: 20px;
+		padding-bottom: 20px;
+		border-bottom: 1px var(--border-gray) solid
+	}
+
+	.nightmode .holiday {
+		border-color: var(--border-dark)
+	}
+
+	#holiday {
 		padding: 20px 0;
 		padding-right: 0
 	}
 
-	.item {
-		width: 100% !important;
-		border-left: none !important
+	.books {
+		width: 100%
 	}
 
-	.book_img {
+	.bookreader {
+		margin: 0 24px;
+		border-left: none
+	}
+
+	.thumbnail {
 		display: block;
 		max-width: 60%;
 		min-height: 60%;
@@ -701,11 +1100,11 @@ body {
 		border-radius: 12px
 	}
 	
-	.book_read {
-		padding-left: 30px;
-		margin-right: 30px
+	.boxs {
+		width: 100%
 	}
-	.download {
-		margin-right: 0
+
+	.box {
+		margin: 30px
 	}
 }

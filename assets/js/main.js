@@ -4,7 +4,7 @@ function cloneTicks() {
     var el = document.querySelector(".fiveminutes");
     var clone = el.cloneNode(true);
     clone.setAttribute('class', `fiveminutes f${i}`);
-    var app = document.getElementById("clockface").appendChild(clone)
+    var app = document.getElementById("analog").appendChild(clone)
     var el2 = document.querySelector(`.f${i}`);
     el2.style.transform = `rotate(${30 * i}deg)`;
     }
@@ -13,7 +13,7 @@ function cloneTicks() {
     var el = document.querySelector(".minutes");
     var clone = el.cloneNode(true);
     clone.setAttribute('class', `minutes m${i}`);
-    var app = document.getElementById("clockface").appendChild(clone)
+    var app = document.getElementById("analog").appendChild(clone)
     var el2 = document.querySelector(`.m${i}`);
     el2.style.transform = `rotate(${6 * i}deg)`;
     }
@@ -482,9 +482,9 @@ var data = [
 let menuContainer = document.getElementsByClassName('holiday')[0];
 for (let i = 0; i < data.length; i++) {
 menuContainer.innerHTML += `
-    <div class="holi_day">
-        <h2 class="holiday_name">${data[i].name}</h2>
-        <h3 class="holiday_item">
+    <div id="holiday">
+        <h2 class="holiday_header">${data[i].name}</h2>
+        <h3 class="holiday_text">
             
         </h3>
     </div>
@@ -497,6 +497,30 @@ for (let j = 0; j < menu.length; j++) {
     let item = document.createElement('li');
     item.className = "menu-item";
     item.innerHTML = menu[j].name;
-    document.getElementsByClassName('holiday_item')[i].appendChild(menuItemWrap).appendChild(item);
+    document.getElementsByClassName('holiday_text')[i].appendChild(menuItemWrap).appendChild(item);
 }
 }
+//** Night Mode */
+$( ".dark" ).click(function() {
+	$( ".icon-wrap" ).toggleClass('active');
+	$('body').toggleClass('nightmode');
+});
+//** Copy Clipboard */
+const answer = document.getElementById("tooltip");
+const copy = document.getElementById("bitcoin");
+const selection = window.getSelection();
+const range = document.createRange();
+const textToCopy = document.getElementById("copy")
+
+copy.addEventListener('click', function(e) {
+    range.selectNodeContents(textToCopy);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    const successful = document.execCommand('copy');
+    if(successful){
+      answer.innerHTML = 'کپی شد !';
+    } else {
+      answer.innerHTML = 'مشکلی پیش آمد !';  
+    }
+    window.getSelection().removeAllRanges()
+});
