@@ -853,6 +853,7 @@ body {
 }
 
 .github {
+	font-weight: 500;
 	color: var(--text-color)
 }
 
@@ -865,6 +866,7 @@ body {
 }
 
 .website {
+	font-weight: 500;
 	color: var(--text-color);
 	text-transform: capitalize
 }
