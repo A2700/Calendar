@@ -926,14 +926,12 @@ body {
 	.minutes {
 		width: 2px;
 		height: 4px;
-		opacity: 20%;
 		transform-origin: 49.5% 60px
 	}
 	
 	.fiveminutes {
 		top: 0;
 		left: 50%;
-		opacity: 30%;
 		position: absolute
 	}
 	
