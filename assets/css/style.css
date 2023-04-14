@@ -1109,4 +1109,8 @@ body {
 	.box {
 		margin: 30px
 	}
+
+	.copyright {
+		margin: 0 24px
+	}
 }
