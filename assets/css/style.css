@@ -1108,6 +1108,14 @@ body {
 		height: 100% !important
 	}
 	
+	.datepicker-plot-area
+	.datepicker-day-view
+	.month-grid-box
+	.header
+	.header-row {
+		margin-left: -20px !important	
+	}
+	
 	.book_img {
 		border-radius: 12px
 	}
