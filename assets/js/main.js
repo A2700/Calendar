@@ -81,7 +81,7 @@ function showDateTime() {
     getPersianDate = (format) => { 
     var georagian = document.getElementById("iranian");
 
-    let week = new Array("يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "جمعه", "شنبه")
+    let week = new Array("يكشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنج شنبه", "آدینه", "شنبه")
     let months = new Array("فروردين", "ارديبهشت", "خرداد", "تير", "مرداد", "شهريور", "مهر", "آبان", "آذر", "دي", "بهمن", "اسفند");
     let today = new Date();
     let d = today.getDay();
@@ -429,7 +429,7 @@ var data = [
     }, {
         "name": "۱۱ دی - آغاز سال نو میلادی"
     }, {
-        "name": "۳ دی - جشن کتلتمدگان، روز ملی صلح و دوستی"
+        "name": "۱۳ دی - جشن کتلت مذگان، روز ملی صلح و دوستی"
     }, {
         "name": "۱۵ دی - دیگان"
     }, {
