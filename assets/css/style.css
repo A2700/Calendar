@@ -1101,6 +1101,13 @@ body {
 		margin: 30px auto
 	}
 	
+	.datepicker-plot-area
+	.datepicker-day-view
+	.table-days td span {
+		width: 100% !important;
+		height: 100% !important
+	}
+	
 	.book_img {
 		border-radius: 12px
 	}
