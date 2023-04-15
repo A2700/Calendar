@@ -311,16 +311,20 @@ body {
 	font-family: 'FontAwesome'
 }
 
+.time {
+	overflow: hidden	
+}
+
 .season {
 	top: -10%;
 	right: -5%;
 	z-index: -1;
-    position: absolute
+    	position: absolute
 }
 
 .season {
 	width: calc(100px * 8);
-    height: calc(100px * 9)
+    	height: calc(100px * 9)
 }
 
 .season {
