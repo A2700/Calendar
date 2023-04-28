@@ -535,7 +535,7 @@ function check() {
   // Get hours
   var hours = date.getHours();
   
-  if (hours >= 7 && hours <= 18) {
+  if (hours >= 18 && hours <= 7) {
     
     var elements = [body];
     
