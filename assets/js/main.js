@@ -9,7 +9,7 @@ function cloneTicks() {
     el2.style.transform = `rotate(${30 * i}deg)`;
     }
     
-        for (var i = 1; i <= 60; i++) {
+    for (var i = 1; i <= 60; i++) {
     var el = document.querySelector(".minutes");
     var clone = el.cloneNode(true);
     clone.setAttribute('class', `minutes m${i}`);
@@ -27,10 +27,13 @@ const hourhand = document.querySelector('.hour')
 
 var sec, min, hour;
 
+
 function setTime() {
+
     const now = new Date();
+    //console.log(now);
     
-    sec = now.getSeconds();
+    sec = now.getSeconds()
     const secdeg = ((sec / 60) * 360);
     sechand.style.transform = `rotate(${secdeg}deg)`;
     
@@ -41,7 +44,7 @@ function setTime() {
     hour = now.getHours();
     const hourdeg = ((hour + min/60) / 12 * 360);
     hourhand.style.transform = `rotate(${hourdeg}deg)`;
-}
+}   
 
 cloneTicks();	
 setInterval(setTime, 1000);
@@ -74,10 +77,10 @@ function showDateTime() {
     var min = date.getMinutes();
     var sec = date.getSeconds();
 
-    var time = hour + ":" + min + ":" + sec;
+    //var time = hour + ":" + min + ":" + sec;
     georagian.innerText = `${today}`;
     }
-    setInterval(showDateTime, 1000);;
+    setInterval(showDateTime, 1000);
     getPersianDate = (format) => { 
     var georagian = document.getElementById("iranian");
 
@@ -501,10 +504,61 @@ for (let j = 0; j < menu.length; j++) {
 }
 }
 //** Night Mode */
-$( ".dark" ).click(function() {
-	$( ".icon-wrap" ).toggleClass('active');
-	$('body').toggleClass('nightmode');
-});
+var body = document.querySelector("body");
+
+function updateClock() {
+  // Get date
+  var date = new Date();
+
+  // Get hours and minutes
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  
+  var time = hours + ":" + minutes;
+
+  timeDisplay.innerHTML = time;
+}
+
+// Update every second
+setInterval(updateClock, 1000);
+setInterval(check, 1000);
+
+// Check for date or night
+function check() {
+  
+  // Get date
+  var date = new Date();
+  // Get hours
+  var hours = date.getHours();
+  
+  if (hours >= 7 && hours <= 18) {
+    
+    var elements = [body];
+    
+    elements.forEach(function(element) {
+      element.classList.remove("nightmode");
+      element.classList.add("day");
+    });
+
+  } else {
+    // Night Time
+    
+    var elements = [body];
+    
+    elements.forEach(function(element) {
+      element.classList.remove("day");
+      element.classList.add("nightmode");
+    });
+    }
+    
+}
+
+
+
 //** Copy Clipboard */
 const answer = document.getElementById("tooltip");
 const copy = document.getElementById("bitcoin");
