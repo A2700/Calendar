@@ -89,7 +89,7 @@ function showDateTime() {
     let today = new Date();
     let d = today.getDay();
     let day = today.getDate();
-    let month = today.getMonth() + 1;
+    let month = today.getMonth() ;
     let year = today.getYear() + 1300;
     year = (window.navigator.userAgent.indexOf('MSIE') > 0) ? year : 1900 + year;
     if (year == 0) {
