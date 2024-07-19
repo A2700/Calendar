@@ -88,8 +88,8 @@ function showDateTime() {
     let months = new Array("فروردين", "ارديبهشت", "خرداد", "تير", "مرداد", "شهريور", "مهر", "آبان", "آذر", "دي", "بهمن", "اسفند");
     let today = new Date();
     let d = today.getDay();
-    let day = today.getDate();
-    let month = today.getMonth() ;
+    let day = today.getDate() + 1;
+    let month = today.getMonth() + 1;
     let year = today.getYear() + 1300;
     year = (window.navigator.userAgent.indexOf('MSIE') > 0) ? year : 1900 + year;
     if (year == 0) {
