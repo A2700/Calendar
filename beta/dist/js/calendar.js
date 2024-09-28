@@ -1,6 +1,5 @@
 const monthNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const dayNames = ["ش", "ی", "د", "س", "چ", "پ", "آ"];
-const fullday = ["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "آدینه"];
 let currentMonth, currentYear;
 
 async function fetchCurrentDate() {
