@@ -1,4 +1,4 @@
-const monthNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+const peNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const dayNames = ["ش", "ی", "د", "س", "چ", "پ", "آ"];
 let currentMonth, currentYear;
 
@@ -38,7 +38,7 @@ async function renderCalendar(month, year, today) {
     calendarBody.innerHTML = '';
 
     const monthYear = document.getElementById('monthYear');
-    monthYear.textContent = `${monthNames[month - 1]} ${year}`;
+    monthYear.textContent = `${peNames[month - 1]} ${year}`;
 
     dayNames.forEach(day => {
         const dayElement = document.createElement('div');
@@ -88,7 +88,7 @@ async function renderCalendar(month, year, today) {
     }
 
     const currentDate = document.getElementById('currentDate');
-    currentDate.textContent = `امروز: ${today.day} ${monthNames[today.month - 1]} ${today.year}`;
+    currentDate.textContent = `امروز: ${today.day} ${peNames[today.month - 1]} ${today.year}`;
 }
 
 document.getElementById('prevMonth').addEventListener('click', async () => {
