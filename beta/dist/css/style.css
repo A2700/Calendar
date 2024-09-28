@@ -662,7 +662,7 @@ body {
 
 @media only screen 
 and (max-device-width : 980px) 
-and (orientation : landscape) {
+and (orientation : portrait) {
     header,section,main,.container,.time,.books,.youtube-channel,footer {
         display: none;
     }
