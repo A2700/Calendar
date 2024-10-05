@@ -20,7 +20,7 @@ body {
 }
 
 .header::before {
-    z-index: 0
+    z-index: -1
 }
 
 .header::before {
