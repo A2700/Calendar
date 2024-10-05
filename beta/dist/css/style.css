@@ -662,7 +662,9 @@ body {
 .tab-content.active {
     display: block;
 }
-
+.mobile {
+    display: none
+}
 
 @media only screen and (max-width: 980px) {
     .header {
@@ -670,6 +672,9 @@ body {
     }
     .home {
         display: none;
+    }
+    .mobile {
+        display: none
     }
     .header::before,
     .footer::before {
