@@ -660,15 +660,15 @@ body {
 }
 
 .tab-content.active {
-    display: block;
+    display: block
 }
 
 @media only screen and (max-width: 980px) {
+    .home {
+        display: none
+    }
     .header {
         background-position: -100px -160px;
-    }
-    .home {
-        display: none;
     }
     .header::before,
     .footer::before {
@@ -678,13 +678,16 @@ body {
         height: 50px;
     }
     .season::after {
-        top: -50px
+        top: 0
     }
     .season::after {
         z-index: -2
     }
     .season::after {
-        opacity: 0.15
+        opacity: 0.07
+    }
+    .season::after {
+        position: fixed;
     }
     .menubar-ul .block:hover::before,
     .menubar-ul .block.selected::before {
