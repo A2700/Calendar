@@ -202,6 +202,10 @@ body {
     background-image: url('../images/icon/statue-of-liberty.png');
 }
 
+.btn-event {
+    border: 1px #eeeeee solid
+}
+
 .slider {
     z-index: 1;
     background-color: #232020;
@@ -253,15 +257,6 @@ body {
     background-position: 15px 20px;
     background-image: url('../images/76081cbfe5ccde2a4c2ad542c671e4c8.png');
 }
-
-:root {
-    --hand-width: 0.5rem;
-    --sec-hand: 6rem;
-    --min-hand: calc(var(--sec-hand) * 0.85);
-    --hour-hand: calc(var(--sec-hand) * 0.6);
-    --clr-red: hsl(11, 79%, 49%);
-    --clr-dark: hsl(0, 0%, 19%);
-  }
 
   .analog-clock {
     top: -120px;
@@ -639,34 +634,71 @@ body {
     line-height: 36px;
 }
 
-#message {
+.nav-toggler {
+    box-shadow: 0 -20px 80px rgba(0, 0, 0, 6%)
+}
+
+.nav-link .icon {
+    background-size: contain;
+    background-position: center;
+}
+
+.i-home {
+    background-image: url('../images/icon/home-agreement.png');
+}
+
+.i-library {
+    background-image: url('../images/icon/library.png');
+}
+
+.i-settings {
+    background-image: url('../images/icon/settings.png');
+}
+
+.tab-content {
     display: none;
-    color: red;
-    font-size: 20px;
 }
 
-#message-mobile {
-    display: none;
+.tab-content.active {
+    display: block;
 }
 
-#message-mobile {
-    padding: 0 50px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
 
-#message-mobile {
-    color: red;
-    font-size: 24px;
-}
-
-@media only screen 
-and (max-device-width : 980px) 
-and (orientation : portrait) {
-    header,section,main,.container,.time,.books,.youtube-channel,footer {
+@media only screen and (max-width: 980px) {
+    .header {
+        background-position: -100px -160px;
+    }
+    .home {
         display: none;
     }
-    #message-mobile {
-        display: block;
+    .header::before,
+    .footer::before {
+        display: none
+    }
+    .day {
+        height: 50px;
+    }
+    .season::after {
+        top: -50px
+    }
+    .season::after {
+        z-index: -2
+    }
+    .season::after {
+        opacity: 0.15
+    }
+    .menubar-ul .block:hover::before,
+    .menubar-ul .block.selected::before {
+        width: 20%
+    }
+    .footer {
+        background-color: #ffffff;
+    }
+    .menubar-ul .block {
+        color: #202020;
+    }
+    .crypto .icon {
+        color: #ffffff;
+        background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
     }
 }
