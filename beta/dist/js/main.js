@@ -1,13 +1,49 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+  if (screen.width <= 980) {
+    window.location.href = "mobile.html";
+  }
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 980) {
+      window.location.href = "mobile.html";
+    }
+  });
+
+});
+  
+document.addEventListener('DOMContentLoaded', function () {
 var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+  slidesPerView: 3,
+  spaceBetween: 20,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+        400: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
     },
   });
 
-  const countdownDate = new Date("September 26, 2024 00:00:00").getTime();
+});
+
+// Timer
+document.addEventListener('DOMContentLoaded', function () {
+const countdownDate = new Date("October 26, 2024 00:00:00").getTime();
         const updateCountdown = () => {
         const now = new Date().getTime();
         const distance = countdownDate - now;
@@ -33,44 +69,60 @@ var swiper = new Swiper(".mySwiper", {
         const interval = setInterval(updateCountdown, 1000);
         updateCountdown();
 
+      });
 
-        var hourhand = document.getElementById('hrs');
-var minutehane = document.getElementById('min');
-var secondhand = document.getElementById('sec');
+      // Date    
+      document.addEventListener('DOMContentLoaded', function () {
+   const ddate = new Date();
+   const jalaaliDate = jalaali.toJalaali(ddate.getFullYear(), ddate.getMonth() + 1, ddate.getDate());
+   const shahanshahiYear = jalaaliDate.jy + 1180;
+   const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+   const monthName = months[jalaaliDate.jm - 1];
+   document.getElementById('shahanshahi').innerText = `${jalaaliDate.jd} ${monthName} ${shahanshahiYear}`;
+   const gregorianYear = ddate.getFullYear();
+   const gregorianMonth = ddate.toLocaleString('en-US', { month: 'long' });
+   const gregorianDay = ddate.getDate();
+   document.getElementById('gregorian').innerText = `${gregorianDay} ${gregorianMonth} ${gregorianYear}`;
 
-function startclock(){
-  var date = new Date();
-  var hour = date.getHours() % 12;
-  var minute = date.getMinutes();
-  var second = date.getSeconds();
-  
-  var hoursdeg = (hour * 30) + (0.5 * minute);
-  var minutedeg = (minute * 6) + (0.1 * second);
-  var seconddeg = second * 6;
-  
-  
-  hourhand.style.transform = 'rotate('+hoursdeg+'deg)';
-  minutehane.style.transform = 'rotate('+minutedeg+'deg)';
-  secondhand.style.transform = 'rotate('+seconddeg+'deg)';
-  
-  setTimeout(startclock, 1000);
-}
-startclock();
-
-const date = new Date();
+  });
         
-        // تبدیل تاریخ به جلالی
-        const jalaaliDate = jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
-        const shahanshahiYear = jalaaliDate.jy + 1180;
+        // Mobile
+        document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.tab-content').forEach(tab => {
+              tab.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.remove('active');
+            });
+            document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+            this.classList.add('active');
+          });
+        });
 
-        const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-        const monthName = months[jalaaliDate.jm - 1];
+      });
 
-        document.getElementById('shahanshahi-date').innerText = `تاریخ شاهنشاهی: ${shahanshahiYear} ${monthName} ${jalaaliDate.jd}`;
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('btn-event').addEventListener('click', function() {
+          if (window.innerWidth < 980) {
+              var eventElement = document.getElementById('holiday');
+              if (eventElement.style.display === 'none' || eventElement.style.display === '') {
+                  eventElement.style.display = 'block';
+              } else {
+                  eventElement.style.display = 'none';
+              }
+          }
+        });
 
-        // نمایش تاریخ میلادی به زبان انگلیسی
-        const gregorianYear = date.getFullYear();
-        const gregorianMonth = date.toLocaleString('en-US', { month: 'long' });
-        const gregorianDay = date.getDate();
+      });
 
-        document.getElementById('gregorian-date').innerText = `Gregorian Date: ${gregorianYear} ${gregorianMonth} ${gregorianDay}`;
+      document.addEventListener('DOMContentLoaded', function () {
+      window.addEventListener('resize', function() {
+          if (window.innerWidth >= 980) {
+              document.getElementById('event').style.display = 'none';
+          }
+        });
+      
+      });
