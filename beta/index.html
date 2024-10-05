@@ -554,15 +554,23 @@
     <script src="./dist/js/swiper-bundle.min.js" defer></script> 
   <script>
 document.addEventListener('DOMContentLoaded', function () {
-      if (screen.width <= 980) {
+    if (screen.width <= 980) {
         window.location.href = "mobile.html";
-      }
-      window.addEventListener('resize', function() {
+        history.pushState(null, null, ' ');
+    } else {
+        window.location.href = "index.html";
+        history.pushState(null, null, ' ');
+    }
+    window.addEventListener('resize', function() {
         if (window.innerWidth <= 980) {
-          window.location.href = "mobile.html";
+            window.location.href = "mobile.html";
+            history.pushState(null, null, ' ');
+        } else {
+            window.location.href = "index.html";
+            history.pushState(null, null, ' ');
         }
-      });
     });
+});
   </script>
   
 <!-- Start of OpenWidget (www.openwidget.com) code -->
