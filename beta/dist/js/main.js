@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+  if (screen.width <= 980) {
+    window.location.href = "mobile.html";
+  }
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 980) {
+      window.location.href = "mobile.html";
+    }
+  });
+
+});
+  
+document.addEventListener('DOMContentLoaded', function () {
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 3,
   spaceBetween: 20,
@@ -103,13 +116,4 @@ const countdownDate = new Date("October 26, 2024 00:00:00").getTime();
           }
         });
 
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
-      window.addEventListener('resize', function() {
-          if (window.innerWidth >= 980) {
-              document.getElementById('event').style.display = 'none';
-          }
-        });
-      
       });
