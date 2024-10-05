@@ -1,15 +1,13 @@
-//document.addEventListener('DOMContentLoaded', function () {
-
- // if (screen.width <= 980) {
-   // window.location.href = "mobile.html";
- // }
- // window.addEventListener('resize', function() {
-   // if (window.innerWidth <= 980) {
-   //   window.location.href = "mobile.html";
-   // }
- // });
-
-//});
+document.addEventListener('DOMContentLoaded', function () {
+      if (screen.width <= 980) {
+        window.location.href = "mobile.html";
+      }
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 980) {
+          window.location.href = "mobile.html";
+        }
+      });
+    });
   
 document.addEventListener('DOMContentLoaded', function () {
 var swiper = new Swiper(".mySwiper", {
