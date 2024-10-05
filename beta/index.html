@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <title class="title">گاهشمار نگارستان - نسخه بتا</title>
 </head>
-<body class="overflow-x-hidden">
-    
+<body class="home overflow-x-hidden">
+  
     <header class="header h-40 relative mb-12 rounded-br-3xl rounded-bl-3xl">
         <div class="container max-w-full px-10">
             <div class="flex flex-row h-40 items-center">
@@ -516,114 +516,13 @@
             </div>
         </div>
     </footer>
-
-    <div id="message-mobile">
-        در حال حاضر نسخه جدید گاهشمار نگارستان در نسخه دسکتاپ فعال است.
-    </div>
-
-    <script src="dist/js/jquery.js"></script>
-    <script src="dist/js/calendar.js"></script>
-    <script src="dist/js/jalaali.min.js"></script>
-    <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
-      spaceBetween: 20,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
-    <script>
-        const countdownDate = new Date("October 06, 2024 00:00:00").getTime();
-        const updateCountdown = () => {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
-
-        if (distance < 0) {
-            clearInterval(interval);
-            document.querySelector(".timer").textContent = "";
-        }
-        };
-
-        const interval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-    </script>
-    <script>
-        const time = document.querySelector(".hours");
-const secHand = document.querySelector(".second");
-const minHand = document.querySelector(".minute");
-const hourHand = document.querySelector(".hour");
-
-//for (let i = 1; i <= 60; i++) {
-  //if (i % 5 == 0) {
-    //time.innerHTML += "<div class='hour-number'><div>" + (i / 5) + "</div></div>";
-    //let hours = document.getElementsByClassName("hour-number");
-    //hours[hours.length - 1].style.transform = `translateX(-50%) rotate(${i*6}deg)`;
-    //hours[hours.length - 1].firstChild.style.transform = `rotate(${i*-6}deg)`;
- // } else {
-    //time.innerHTML += "<div class='minute-bar'></div>";
-    //let bars = document.getElementsByClassName("minute-bar");
-   // bars[bars.length - 1].style.transform = `translateX(-50%) rotate(${i*6}deg)`;
-  //}
-//}
-
-function startClock() {
-  const now = new Date();
-  const utcHours = now.getUTCHours();
-  const utcMinutes = now.getUTCMinutes();
-  const utcSeconds = now.getUTCSeconds();
-
-  // Adjust for Tehran time (UTC+3:30)
-  const tehranHours = (utcHours + 3 + Math.floor((utcMinutes + 30) / 60)) % 24;
-  const tehranMinutes = (utcMinutes + 30) % 60;
-  const tehranSeconds = utcSeconds;
-
-  let secDeg = tehranSeconds * (360 / 60);
-  let minDeg = tehranMinutes * (360 / 60) + tehranSeconds / 12;
-  let hourDeg = tehranHours * (360 / 12) + (tehranMinutes / 12) * (360 / 60);
-  secHand.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
-  minHand.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
-  hourHand.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
-}
-setInterval(startClock, 1000);
-startClock();
-    </script>
-      <script>
-        const date = new Date();
-        
-        // تبدیل تاریخ به جلالی
-        const jalaaliDate = jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
-        const shahanshahiYear = jalaaliDate.jy + 1180;
-
-        const months = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
-        const monthName = months[jalaaliDate.jm - 1];
-
-        document.getElementById('shahanshahi-date').innerText = `${jalaaliDate.jd} ${monthName} ${shahanshahiYear}`;
-
-        // نمایش تاریخ میلادی به زبان انگلیسی
-        const gregorianYear = date.getFullYear();
-        const gregorianMonth = date.toLocaleString('en-US', { month: 'long' });
-        const gregorianDay = date.getDate();
-
-        document.getElementById('gregorian-date').innerText = `${gregorianDay} ${gregorianMonth} ${gregorianYear}`;
-    </script>
+  
+    <script src="./dist/js/jquery.js" defer></script>
+    <script src="./dist/js/main.js" defer></script>
+    <script src="./dist/js/clock.js" defer></script>
+    <script src="./dist/js/calendar.js" defer></script>
+    <script src="./dist/js/jalaali.min.js" defer></script>
+    <script src="./dist/js/swiper-bundle.min.js" defer></script> 
   
 <!-- Start of OpenWidget (www.openwidget.com) code -->
 <script>
