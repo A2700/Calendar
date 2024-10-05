@@ -523,6 +523,18 @@
     <script src="./dist/js/calendar.js" defer></script>
     <script src="./dist/js/jalaali.min.js" defer></script>
     <script src="./dist/js/swiper-bundle.min.js" defer></script> 
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+      if (screen.width <= 980) {
+        window.location.href = "mobile.html";
+      }
+      window.addEventListener('resize', function() {
+        if (window.innerWidth <= 980) {
+          window.location.href = "mobile.html";
+        }
+      });
+    });
+  </script>
   
 <!-- Start of OpenWidget (www.openwidget.com) code -->
 <script>
