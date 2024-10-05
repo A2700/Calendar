@@ -674,7 +674,7 @@ body {
         display: none;
     }
     .mobile {
-        display: none
+        display: block
     }
     .header::before,
     .footer::before {
