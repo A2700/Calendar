@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/output.css" rel="stylesheet">
-  <link href="./dist/css/style.css" rel="stylesheet">
-  <link href="./dist/css/all.min.css" rel="stylesheet">
+  <link href="/src/output.css" rel="stylesheet">
+  <link href="/dist/css/style.css" rel="stylesheet">
+  <link href="/dist/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <title class="title">Iranian Calendar</title>
 </head>
@@ -41,6 +41,18 @@
             </div>
         </div>
     </header>    
+
+    <div class="dclock mb-5">
+        <div class="container max-w-full px-10">
+
+            <div class="digiclock">
+                <span class="digihour block m-2 p-6 pb-4 text-5xl font-light rounded-xl text-black bg-white">00</span>:
+                <span class="digiminute block m-2 p-6 pb-4 text-5xl font-light rounded-xl text-black bg-white">00</span>:
+                <span class="digisecond block m-2 p-6 pb-4 text-5xl font-light rounded-xl text-black bg-white">00</span>
+            </div>
+
+        </div>
+    </div>
         
         <main class="tab-content active" id="home">
             <section class="wrapper mt-12 md:mt-3 sm:mt-3 mb-12" id="wrapper">
@@ -58,7 +70,7 @@
                             </div>
                         </div>
             
-                        <button class="btn-event hidden md:block sm:block mt-5 pt-5 pb-5 rounded-md font-light text-base text-center" id="btn-event">مناسبت ها</button>
+                        <button class="btn-event hidden md:block sm:block mt-5 pt-5 pb-5 rounded-md font-light text-base text-center bg-white" id="btn-event">مناسبت ها</button>
         
                         <div class="basis-1/2 md:basis-full sm:basis-full">
                             <div class="holiday block md:hidden sm:hidden pt-0 md:pt-14 sm:pt-14 pr-14 md:pr-0 sm:pr-0" id="holiday">
@@ -74,7 +86,7 @@
                 <div class="container max-w-full px-10 pt-5 pb-5">
                     <div class="grid grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-5">
             
-                        <div class="item iranian-calendar relative h-20 rounded-lg">
+                        <div class="item iranian-calendar relative h-20 rounded-lg bg-white">
                             <div class="flex items-center h-20">
             
                                 <span class="per-calendar pr-6 text-base font-light text-black" id="currentDate"></span>
@@ -82,7 +94,7 @@
                             </div>
                         </div>
                 
-                        <div class="item moon-calendar relative h-20 rounded-lg">
+                        <div class="item moon-calendar relative h-20 rounded-lg bg-white">
                             <div class="flex items-center h-20">
             
                                 <span class="per-calendar pr-6 text-base font-light text-black" id="shahanshahi"></span>
@@ -90,7 +102,7 @@
                             </div>
                         </div>
             
-                        <div class="item world-calendar relative h-20 rounded-lg text-left">
+                        <div class="item world-calendar relative h-20 rounded-lg text-left bg-white">
                             <div class="flex items-center h-20">
             
                                 <span class="en-calendar pl-6 text-base font-light text-black" id="gregorian"></span>
@@ -111,10 +123,10 @@
             
                                 <div class="basis-full">
                                     <div class="item p-5 md:p-0 sm:p-0 mb-5 rounded-xl">
-                                      <div class="quote text-sm font-light leading-8 text-justify">
-                                        در گذشته، دیانت زرتشت باعث رونق و سعادت ایران گردید و از آثار ناگوار قدرت استبدادی جلوگیری کرد، ولی امروز مذهب اسلام باعث نابودی ایران شده‌است, مونتسکیو
-                                      </div>
-                                  </div>
+                                        <div class="quote text-sm font-light leading-8 text-justify">
+                                            وقتی ثروت‌ های بزرگ به دست برخی مردم می‌افتد در پرتو آن نیرومند می‌شوند و در سایهٔ نیرومندی و ثروت خیال می‌ کنند که می‌توانند در خارج از وطن خود زندگی نمایند و خوشبخت و سرافراز باشند ولی به زودی می‌ فهمند که اشتباه کرده‌ اند و عظمت هر ملتی بر روی خرابه‌ های وطن خودش می‌باشد و بس!
+                                        </div>
+                                    </div>
                                 </div>
             
                             </div>
@@ -129,18 +141,18 @@
                     <div class="flex flex-row md:flex-col-reverse sm:flex-col-reverse h-80 md:h-auto sm:h-auto items-center">
         
                         <div class="basis-1/3 md:basis-full sm:basis-full">
-                            <img src="./dist/images/candy-bag.png" alt="" class="relative md:absolute sm:absolute top-0 left-10 bottom-0 m-auto max-w-full w-64 h-64 mr-48 md:mr-0 sm:mr-0 object-cover opacity-100 md:opacity-15 sm:opacity-10 -z-10" />
+                            <img src="./dist/images/summer.png" alt="" class="relative md:absolute sm:absolute top-0 left-10 bottom-0 m-auto max-w-full w-64 h-64 mr-48 md:mr-0 sm:mr-0 object-cover opacity-100 md:opacity-15 sm:opacity-10 -z-10" />
                         </div>
         
                         <div class="basis-2/3 md:basis-full sm:basis-full">
                             <div class="title pr-24 md:pr-0 sm:pr-0 mb-4">
-                              <h2 class="headline text-xl font-black text-white">جشن هالووین</h2>
-                          </div>
-                          <div class="pr-24 md:pr-0 sm:pr-0 pl-48 md:pl-0 sm:pl-0">
-                              <p class="paragraph text-sm font-light leading-8 text-justify text-white">
-                                  هالووین، شبی که ارواح و شیاطین به مهمانی می‌آیند و ما با لباس‌های عجیب و غریب به استقبالشان می‌رویم! 🍬👻
-                              </p>
-                          </div>
+                                <h2 class="headline text-xl font-black text-white">عنوان</h2>
+                            </div>
+                            <div class="pr-24 md:pr-0 sm:pr-0 pl-48 md:pl-0 sm:pl-0">
+                                <p class="paragraph text-sm font-light leading-8 text-justify text-white">
+                                    این راست نیست که هرچه عاشق‌ تر باشی بهتر درک می‌کنی. همه‌ی آنچه عشق و عاشقی از من می‌ خواهد فقط درکِ این حکمت است
+                                </p>
+                            </div>
                             <div class="timer h-12 mt-6 ml-48 md:ml-0 sm:ml-0" style="direction: ltr;">
                                 <div class="flex flex-row h-12">
         
@@ -173,255 +185,255 @@
             <div class="books pr-10 pl-10">
                 <div class="container max-w-full">
                     <div class="swiper mySwiper">
-                        <div class="swiper-wrapper pt-16 md:pt-8 sm:pt-8 pb-16 md:pb-0 sm:pb-0">
+                        <div class="swiper-wrapper pt-16 pb-16 md:pb-0 sm:pb-0">
+            
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/1.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">رفیق آیت الله</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">امیرعباس فخرآور</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب "رفیق آیت‌الله" از امیرعباس فخرآور به بررسی تاریخ ایران، نفوذ شوروی در جمهوری اسلامی و نقش علی خامنه‌ای می‌پردازد.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
         
                             <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/1.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">رفیق آیت الله</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">امیرعباس فخرآور</h3>
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/2.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">روح قانون اساسی</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">امیرعباس فخرآور</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب روح قانون اساسی به نقد منتسکیو و نیاز به قوانین اساسی عاری از ایدئولوژی می‌پردازد.
+                                            </h4>
+                                        </p>
+                                    </div>
                                 </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب "رفیق آیت‌الله" از امیرعباس فخرآور به بررسی تاریخ ایران، نفوذ شوروی در جمهوری اسلامی و نقش علی خامنه‌ای می‌پردازد.
-                                    </h4>
-                                </p>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/2.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">روح قانون اساسی</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">امیرعباس فخرآور</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب روح قانون اساسی به نقد منتسکیو و نیاز به قوانین اساسی عاری از ایدئولوژی می‌پردازد.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/3.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">ایچی‌گو ایچی‌یه</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">هکتور گارسیا، فرانچسک میرالس</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب ایچی‌گو ایچی‌یه به ما یادآوری می‌کند که هر لحظه از زندگی ارزشمند است و باید با تمام وجود از آن لذت ببریم.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/4.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">راز داوینچی</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">دن براون</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب "راز داوینچی" داستانی مهیج از دن براون است که در آن رمز و رازهای هنری و تاریخی کشف می‌شوند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/5.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">کیمیاگر</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">پائولو کوئیلو</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب کیمیاگر اثر پائولو کوئیلو داستانی درباره‌ی جستجوی خود و تحقق آرزوهاست، که از طریق سفرها و تجربیات شخصیت اصلی، سانتیاگو، روایت می‌شود.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/6.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">قوانین تفکر</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">ریچارد تمپلر</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب قوانین تفکر اثر ریچارد تمپلر به بررسی اصول و قواعدی می‌پردازد که می‌تواند به بهبود تفکر و تصمیم‌گیری کمک کند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/7.webp" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">نثر شاهنامه فردوسی</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">محمد دبیرسیاقی</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        شاهنامه فردوسی، اثر حماسی و ملی ایران، داستان‌های اساطیری و تاریخی ایران را روایت می‌کند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/8.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">هنر خوب زندگی کردن</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">رولف دوبلی</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/9.webp" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">پی گیر اخبار نباشید</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">رولف دوبلی</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        کتاب "پی‌گیر اخبار نباشید" اثر رولف دوبلی، به بررسی مضرات پیگیری مداوم اخبار و تأثیر آن بر ذهن و تصمیم‌گیری می‌پردازد.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/10.jpg" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">هنر شفاف اندیشیدن</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">رولف دوبلی</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/11.webp" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">کتاب ۱۹۸۴</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">جورج اورول</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/12.webp" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">مزرعه حیوانات</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">جورج اورول</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="item h-48 rounded-xl bg-white">
-                            <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
-                                <img src="./dist/images/book/13.webp" class="w-auto h-32 object-cover" alt="" />
-                            </div>
-                            <div class="content pt-5 mr-12 ml-4">
-                                <h2 class="headline text-base font-black">انسان در جستجوی معنا</h2>
-                                <div class="auther pt-3 pb-3">
-                                    <h3 class="headline text-xs font-light">ویکتور فرانکل</h3>
-                                </div>
-                                <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
-                                        رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
-                                    </h4>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
         
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/3.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">ایچی‌گو ایچی‌یه</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">هکتور گارسیا، فرانچسک میرالس</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب ایچی‌گو ایچی‌یه به ما یادآوری می‌کند که هر لحظه از زندگی ارزشمند است و باید با تمام وجود از آن لذت ببریم.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/4.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">راز داوینچی</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">دن براون</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب "راز داوینچی" داستانی مهیج از دن براون است که در آن رمز و رازهای هنری و تاریخی کشف می‌شوند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/5.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">کیمیاگر</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">پائولو کوئیلو</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب کیمیاگر اثر پائولو کوئیلو داستانی درباره‌ی جستجوی خود و تحقق آرزوهاست، که از طریق سفرها و تجربیات شخصیت اصلی، سانتیاگو، روایت می‌شود.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/6.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">قوانین تفکر</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">ریچارد تمپلر</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب قوانین تفکر اثر ریچارد تمپلر به بررسی اصول و قواعدی می‌پردازد که می‌تواند به بهبود تفکر و تصمیم‌گیری کمک کند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/7.webp" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">نثر شاهنامه فردوسی</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">محمد دبیرسیاقی</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                شاهنامه فردوسی، اثر حماسی و ملی ایران، داستان‌های اساطیری و تاریخی ایران را روایت می‌کند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/8.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">هنر خوب زندگی کردن</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">رولف دوبلی</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/9.webp" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">پی گیر اخبار نباشید</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">رولف دوبلی</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                کتاب "پی‌گیر اخبار نباشید" اثر رولف دوبلی، به بررسی مضرات پیگیری مداوم اخبار و تأثیر آن بر ذهن و تصمیم‌گیری می‌پردازد.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/10.jpg" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">هنر شفاف اندیشیدن</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">رولف دوبلی</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/11.webp" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">کتاب ۱۹۸۴</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">جورج اورول</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/12.webp" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">مزرعه حیوانات</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">جورج اورول</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="swiper-slide">
+                                <div class="item h-48 rounded-xl bg-white">
+                                    <div class="image h-40 float-right mt-4 ml-4 p-2 rounded-lg">
+                                        <img src="./dist/images/book/13.webp" class="w-auto h-32 object-cover" alt="" />
+                                    </div>
+                                    <div class="content pt-5 mr-12 ml-4">
+                                        <h2 class="headline text-base font-black">انسان در جستجوی معنا</h2>
+                                        <div class="auther pt-3 pb-3">
+                                            <h3 class="headline text-xs font-light">ویکتور فرانکل</h3>
+                                        </div>
+                                        <p class="paragraph">
+                                            <h4 class="headline font-light leading-7 text-justify">
+                                                رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
+                                            </h4>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+            
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -517,7 +529,7 @@
               <div class="basis-1/3">
                 <div class="nav-item">
                   <a class="nav-link cursor-pointer" data-tab="home">
-                    <div class="icon block m-auto mt-4 mb-2 w-5 h-5 i-home"></div>
+                    <div class="icon block m-auto mt-3 mb-3 w-5 h-5 i-home"></div>
                     <span class="span">خانه</span>
                   </a>
                 </div>
@@ -525,7 +537,7 @@
               <div class="basis-1/3">
                 <div class="nav-item">
                   <a class="nav-link cursor-pointer" data-tab="library">
-                    <div class="icon block m-auto mt-4 mb-2 w-5 h-5 i-library"></div>
+                    <div class="icon block m-auto mt-3 mb-3 w-5 h-5 i-library"></div>
                     <span class="span">کتابخانه</span>
                   </a>
                 </div>
@@ -533,7 +545,7 @@
               <div class="basis-1/3">
                 <div class="nav-item">
                   <a class="nav-link cursor-pointer" data-tab="settings">
-                    <div class="icon block m-auto mt-4 mb-2 w-5 h-5 i-settings"></div>
+                    <div class="icon block m-auto mt-3 mb-3 w-5 h-5 i-settings"></div>
                     <span class="span">تنظیمات</span>
                   </a>
                 </div>
@@ -545,19 +557,10 @@
 
       <script src="./dist/js/jquery.js" defer></script>
       <script src="./dist/js/main.js" defer></script>
+      <script src="./dist/js/clock.js" defer></script>
       <script src="./dist/js/calendar.js" defer></script>
       <script src="./dist/js/jalaali.min.js" defer></script>
       <script src="./dist/js/swiper-bundle.min.js" defer></script>
-      <!-- Start of OpenWidget (www.openwidget.com) code -->
-    <script>
-      window.__ow = window.__ow || {};
-      window.__ow.organizationId = "ea24c43a-4b8f-4046-995c-9071d32cd4cc";
-      window.__ow.integration_name = "manual_settings";
-      window.__ow.product_name = "openwidget";   
-      ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
-    </script>
-    <noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
-    <!-- End of OpenWidget code -->
-  
-</body>
-</html>
+
+    </body>
+    </html>
