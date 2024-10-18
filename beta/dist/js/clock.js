@@ -23,25 +23,3 @@ function startClock() {
 }
 setInterval(startClock, 1000);
 startClock(); 
-
-function updateClock() {
-  const clock = document.querySelector('.digiclock');
-  const hourSpan = clock.querySelector('.digihour');
-  const minuteSpan = clock.querySelector('.digiminute');
-  const secondSpan = clock.querySelector('.digisecond');
-
-  const now = new Date();
-  const utcOffset = 3.5 * 60 * 60 * 1000;
-  const iranTime = new Date(now.getTime() + utcOffset);
-
-  const hours = iranTime.getUTCHours().toString().padStart(2, '0');
-  const minutes = iranTime.getUTCMinutes().toString().padStart(2, '0');
-  const seconds = iranTime.getUTCSeconds().toString().padStart(2, '0');
-
-  hourSpan.textContent = hours;
-  minuteSpan.textContent = minutes;
-  secondSpan.textContent = seconds;
-}
-
-setInterval(updateClock, 1000);
-updateClock();
