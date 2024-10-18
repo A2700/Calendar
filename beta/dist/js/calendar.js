@@ -1,10 +1,11 @@
-const peNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
+const monthNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const dayNames = ["ش", "ی", "د", "س", "چ", "پ", "آ"];
+const fullday = ["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "آدینه"];
 let currentMonth, currentYear;
 
 async function fetchCurrentDate() {
     try {
-        const response = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tehran');
+        const response = await fetch('http://worldtimeapi.org/api/timezone/Asia/Tehran');
         const data = await response.json();
         const date = new Date(data.datetime);
         const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth() + 1, date.getDate());
@@ -38,7 +39,7 @@ async function renderCalendar(month, year, today) {
     calendarBody.innerHTML = '';
 
     const monthYear = document.getElementById('monthYear');
-    monthYear.textContent = `${peNames[month - 1]} ${year}`;
+    monthYear.textContent = `${monthNames[month - 1]} ${year}`;
 
     dayNames.forEach(day => {
         const dayElement = document.createElement('div');
@@ -88,7 +89,7 @@ async function renderCalendar(month, year, today) {
     }
 
     const currentDate = document.getElementById('currentDate');
-    currentDate.textContent = `امروز: ${today.day} ${peNames[today.month - 1]} ${today.year}`;
+    currentDate.textContent = `امروز ${today.day} ${monthNames[today.month - 1]} ${today.year}`;
 }
 
 document.getElementById('prevMonth').addEventListener('click', async () => {
