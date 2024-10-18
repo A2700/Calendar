@@ -2,19 +2,16 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
-  <meta name="googlebot" content="noindex">
-  <meta name="googlebot-news" content="noindex">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./src/output.css" rel="stylesheet">
-  <link href="./dist/css/style.css" rel="stylesheet">
-  <link href="./dist/css/all.min.css" rel="stylesheet">
+  <link href="/src/output.css" rel="stylesheet">
+  <link href="/dist/css/style.css" rel="stylesheet">
+  <link href="/dist/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <title class="title">گاهشمار نگارستان - نسخه بتا</title>
+  <title class="title">Iranian Calendar</title>
 </head>
 <body class="home overflow-x-hidden">
 
-  <header class="header h-40 md:h-20 sm:h-20  mb-12 md:mb-6 sm:mb-6 rounded-br-3xl md:rounded-br-lg sm:rounded-br-lg rounded-bl-3xl md:rounded-bl-lg sm:rounded-bl-lg"  id="header">
+    <header class="header relative h-40 md:h-20 sm:h-20 mb-12 md:mb-6 sm:mb-6 rounded-br-3xl md:rounded-br-lg sm:rounded-br-lg rounded-bl-3xl md:rounded-bl-lg sm:rounded-bl-lg"  id="header">
         <div class="container max-w-full px-10">
             <div class="flex flex-row h-40 md:h-20 sm:h-20 items-center">
     
@@ -26,7 +23,7 @@
     
                 <div class="basis-10/12 md:basis-full sm:basis-full">
                     <div class="title">
-                        <h1 class="headline text-lg font-black text-white">گاهشمار ایرانیان</h1>
+                        <h1 class="headline text-2xl font-black text-white">گاهشمار ایرانیان</h1>
                         <div class="dec hiddem">
                             <h2 class="headline"></h2>
                         </div>
@@ -44,6 +41,18 @@
             </div>
         </div>
     </header>
+
+    <div class="dclock mb-5">
+        <div class="container max-w-full px-10">
+
+            <div class="digiclock hidden">
+                <span class="digihour block m-2 p-6 pb-4 text-5xl font-light rounded-xl text-black bg-white">00</span>:
+                <span class="digiminute block m-2 p-6 pb-4 text-5xl font-light rounded-xl text-black bg-white">00</span>:
+                <span class="digisecond block m-2 p-6 pb-4 text-5xl font-light rounded-xl text-black bg-white">00</span>
+            </div>
+
+        </div>
+    </div>
     
     <section class="season relative">
         <div class="container max-w-full px-10">
@@ -55,7 +64,7 @@
                         <div class="basis-full">
                             <div class="item p-5 md:p-0 sm:p-0 mb-5 rounded-xl">
                                 <div class="quote text-sm font-light leading-8 text-justify">
-                                  در گذشته، دیانت زرتشت باعث رونق و سعادت ایران گردید و از آثار ناگوار قدرت استبدادی جلوگیری کرد، ولی امروز مذهب اسلام باعث نابودی ایران شده‌است, مونتسکیو
+                                    وقتی ثروت‌ های بزرگ به دست برخی مردم می‌افتد در پرتو آن نیرومند می‌شوند و در سایهٔ نیرومندی و ثروت خیال می‌ کنند که می‌توانند در خارج از وطن خود زندگی نمایند و خوشبخت و سرافراز باشند ولی به زودی می‌ فهمند که اشتباه کرده‌ اند و عظمت هر ملتی بر روی خرابه‌ های وطن خودش می‌باشد و بس!
                                 </div>
                             </div>
                         </div>
@@ -113,16 +122,16 @@
             <div class="flex flex-row md:flex-col-reverse sm:flex-col-reverse h-80 md:h-auto sm:h-auto items-center">
     
                 <div class="basis-1/3 md:basis-full sm:basis-full">
-                    <img src="./dist/images/candy-bag.png" alt="" class="relative md:absolute sm:absolute top-0 left-10 bottom-0 m-auto max-w-full w-64 h-64 mr-48 md:mr-0 sm:mr-0 object-cover opacity-100 md:opacity-15 sm:opacity-10 -z-10" />
+                    <img src="./dist/images/summer.png" alt="" class="relative md:absolute sm:absolute top-0 left-10 bottom-0 m-auto max-w-full w-64 h-64 mr-48 md:mr-0 sm:mr-0 object-cover opacity-100 md:opacity-15 sm:opacity-10 -z-10" />
                 </div>
     
                 <div class="basis-2/3 md:basis-full sm:basis-full">
                     <div class="title pr-24 md:pr-0 sm:pr-0 mb-4">
-                        <h2 class="headline text-xl font-black text-white">جشن هالووین</h2>
+                        <h2 class="headline text-xl font-black text-white">عنوان</h2>
                     </div>
                     <div class="pr-24 md:pr-0 sm:pr-0 pl-48 md:pl-0 sm:pl-0">
                         <p class="paragraph text-sm font-light leading-8 text-justify text-white">
-                            هالووین، شبی که ارواح و شیاطین به مهمانی می‌آیند و ما با لباس‌های عجیب و غریب به استقبالشان می‌رویم! 🍬👻
+                            این راست نیست که هرچه عاشق‌ تر باشی بهتر درک می‌کنی. همه‌ی آنچه عشق و عاشقی از من می‌ خواهد فقط درکِ این حکمت است
                         </p>
                     </div>
                     <div class="timer h-12 mt-6 ml-48 md:ml-0 sm:ml-0" style="direction: ltr;">
@@ -210,7 +219,7 @@
                                     <h3 class="headline text-xs font-light">امیرعباس فخرآور</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب "رفیق آیت‌الله" از امیرعباس فخرآور به بررسی تاریخ ایران، نفوذ شوروی در جمهوری اسلامی و نقش علی خامنه‌ای می‌پردازد.
                                     </h4>
                                 </p>
@@ -229,7 +238,7 @@
                                     <h3 class="headline text-xs font-light">امیرعباس فخرآور</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب روح قانون اساسی به نقد منتسکیو و نیاز به قوانین اساسی عاری از ایدئولوژی می‌پردازد.
                                     </h4>
                                 </p>
@@ -248,7 +257,7 @@
                                     <h3 class="headline text-xs font-light">هکتور گارسیا، فرانچسک میرالس</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب ایچی‌گو ایچی‌یه به ما یادآوری می‌کند که هر لحظه از زندگی ارزشمند است و باید با تمام وجود از آن لذت ببریم.
                                     </h4>
                                 </p>
@@ -267,7 +276,7 @@
                                     <h3 class="headline text-xs font-light">دن براون</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب "راز داوینچی" داستانی مهیج از دن براون است که در آن رمز و رازهای هنری و تاریخی کشف می‌شوند.
                                     </h4>
                                 </p>
@@ -286,7 +295,7 @@
                                     <h3 class="headline text-xs font-light">پائولو کوئیلو</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب کیمیاگر اثر پائولو کوئیلو داستانی درباره‌ی جستجوی خود و تحقق آرزوهاست، که از طریق سفرها و تجربیات شخصیت اصلی، سانتیاگو، روایت می‌شود.
                                     </h4>
                                 </p>
@@ -305,7 +314,7 @@
                                     <h3 class="headline text-xs font-light">ریچارد تمپلر</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب قوانین تفکر اثر ریچارد تمپلر به بررسی اصول و قواعدی می‌پردازد که می‌تواند به بهبود تفکر و تصمیم‌گیری کمک کند.
                                     </h4>
                                 </p>
@@ -324,7 +333,7 @@
                                     <h3 class="headline text-xs font-light">محمد دبیرسیاقی</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         شاهنامه فردوسی، اثر حماسی و ملی ایران، داستان‌های اساطیری و تاریخی ایران را روایت می‌کند.
                                     </h4>
                                 </p>
@@ -343,7 +352,7 @@
                                     <h3 class="headline text-xs font-light">رولف دوبلی</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
                                     </h4>
                                 </p>
@@ -362,7 +371,7 @@
                                     <h3 class="headline text-xs font-light">رولف دوبلی</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         کتاب "پی‌گیر اخبار نباشید" اثر رولف دوبلی، به بررسی مضرات پیگیری مداوم اخبار و تأثیر آن بر ذهن و تصمیم‌گیری می‌پردازد.
                                     </h4>
                                 </p>
@@ -381,7 +390,7 @@
                                     <h3 class="headline text-xs font-light">رولف دوبلی</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
                                     </h4>
                                 </p>
@@ -400,7 +409,7 @@
                                     <h3 class="headline text-xs font-light">جورج اورول</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
                                     </h4>
                                 </p>
@@ -419,7 +428,7 @@
                                     <h3 class="headline text-xs font-light">جورج اورول</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
                                     </h4>
                                 </p>
@@ -438,7 +447,7 @@
                                     <h3 class="headline text-xs font-light">ویکتور فرانکل</h3>
                                 </div>
                                 <p class="paragraph">
-                                    <h4 class="headline text-xs font-normal leading-6 text-justify">
+                                    <h4 class="headline font-light leading-7 text-justify">
                                         رولف دوبلی با معرفی 52 ابزار ذهنی کمک می کند مخاطبانش بر مشکلات خود که غالبا منشا ذهنی دارند غلبه کنند.
                                     </h4>
                                 </p>
@@ -516,38 +525,60 @@
             </div>
         </div>
     </footer>    
-  
+
+    <nav class="nav-toggler fixed h-20 left-0 right-0 bottom-0 pt-1 rounded-tr-3xl rounded-tl-3xl z-50 overflow-hidden bg-white hidden">
+        <div class="nav-collapse">
+          <div class="nav-navbar text-center">
+            <div class="flex flex-row">
+              <div class="basis-1/3">
+                <div class="nav-item">
+                  <a class="nav-link cursor-pointer" data-tab="home">
+                    <div class="icon block m-auto mt-3 mb-3 w-5 h-5 i-home"></div>
+                    <span class="span">خانه</span>
+                  </a>
+                </div>
+              </div>
+              <div class="basis-1/3">
+                <div class="nav-item">
+                  <a class="nav-link cursor-pointer" data-tab="library">
+                    <div class="icon block m-auto mt-3 mb-3 w-5 h-5 i-home"></div>
+                    <span class="span">کتابخانه</span>
+                  </a>
+                </div>
+              </div>
+              <div class="basis-1/3">
+                <div class="nav-item">
+                  <a class="nav-link cursor-pointer" data-tab="settings">
+                    <div class="icon block m-auto mt-3 mb-3 w-5 h-5 i-home"></div>
+                    <span class="span">تنظیمات</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
     <script src="./dist/js/jquery.js" defer></script>
     <script src="./dist/js/main.js" defer></script>
     <script src="./dist/js/clock.js" defer></script>
     <script src="./dist/js/calendar.js" defer></script>
     <script src="./dist/js/jalaali.min.js" defer></script>
-    <script src="./dist/js/swiper-bundle.min.js" defer></script> 
-  <script>
-document.addEventListener('DOMContentLoaded', function () {
-      if (screen.width <= 980) {
+    <script src="./dist/js/swiper-bundle.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+        if (screen.width <= 980) {
         window.location.href = "mobile.html";
-      }
-      window.addEventListener('resize', function() {
-        if (window.innerWidth <= 980) {
-          window.location.href = "mobile.html";
         }
-      });
-    });
-  </script>
-  
-<!-- Start of OpenWidget (www.openwidget.com) code -->
-<script>
-  window.__ow = window.__ow || {};
-  window.__ow.organizationId = "ea24c43a-4b8f-4046-995c-9071d32cd4cc";
-  window.__ow.integration_name = "manual_settings";
-  window.__ow.product_name = "openwidget";   
-  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
-</script>
-<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
-<!-- End of OpenWidget code -->
+        window.addEventListener('resize', function() {
+        if (window.innerWidth <= 980) {
+            window.location.href = "mobile.html";
+        }
+        });
 
-
+        });
+    </script>
 
 </body>
 </html>
