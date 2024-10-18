@@ -7,7 +7,15 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-        400: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      400: {
         slidesPerView: 1,
         spaceBetween: 20,
       },
@@ -49,7 +57,7 @@ const countdownDate = new Date("October 26, 2024 00:00:00").getTime();
 
         if (distance < 0) {
             clearInterval(interval);
-            document.querySelector(".timer").textContent = "EXPIRED";
+            document.querySelector(".timer").textContent = "";
         }
         };
 
@@ -105,7 +113,7 @@ const countdownDate = new Date("October 26, 2024 00:00:00").getTime();
 
       });
 
-document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', function () {
       window.addEventListener('resize', function() {
           if (window.innerWidth >= 980) {
               document.getElementById('event').style.display = 'none';
