@@ -1,5 +1,9 @@
-@import url('../fonts/font.css');
+@import url('../fonts//font.css');
+@import url('../fonts/fontiran.css');
 
+:root {
+    --gradint: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+}
 
 body {
     font-family: 'Yekan Bakh';
@@ -7,14 +11,10 @@ body {
 }
 
 .header {
-    position: relative
-}
-
-.header {
     background-color: #000000;
-    background-position: 100px -275px;
+    background-position: 100px -300px;
     background-size: contain;
-    background-attachment: fixed;
+    background-attachment:fixed;
     background-repeat: no-repeat;
     background-image: url('../images/cyrus.jpg');
 }
@@ -46,7 +46,11 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url('../images/svg/rounded.svg');
-} 
+}
+
+.header .title {
+    font-family: 'KalamehWeb';
+}
 
 .settings .btn {
     background-color: #ffffff
@@ -70,6 +74,29 @@ body {
     -moz-transform: rotate(64deg);
     -ms-transform: rotate(64deg);
     -o-transform: rotate(64deg);
+}
+
+.dclock {
+    direction: ltr
+}
+
+.digiclock {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center
+}
+
+.digihour,
+.digiminute,
+.digisecond {
+    display: inline-block;
+    
+}
+
+.digihour,
+.digiminute,
+.digisecond {
+    box-shadow: 0 8px 80px rgba(0, 0, 0, 6%)
 }
 
 .quote::after,
@@ -107,7 +134,7 @@ body {
 }
 
 .season::after {
-    z-index: 1;
+    z-index: -1;
 }
 
 .season::after {
@@ -246,6 +273,11 @@ body {
     background-size: contain;
     background-image: url('../images/4.png');
 }
+
+.slider .title {
+    font-family: 'KalamehWeb';
+}
+
 .timer .w-12 {
     background-color: #F4F4F4;
 }
@@ -415,6 +447,10 @@ body {
     align-items: center;
     justify-content: center;
     color: #f09819 !important
+}
+
+.books .headline {
+    font-family: 'KalamehWeb';
 }
 
 .books .image > img {
@@ -597,22 +633,41 @@ body {
     text-align: center
 }
 
-.day {
-    font-size: 17px;
+.calendar-body  div:nth-child(16),
+.calendar-body  div:nth-child(23),
+.calendar-body  div:nth-child(30),
+.calendar-body  div:nth-child(37),
+.calendar-body  div:nth-child(44) {
+    background-color: rgba(255, 88, 88, 10%)
+} 
+
+
+.calendar-body div {
+    font-size: 20px;
     font-weight: 300;
 }
 
-.day {
-    height: 80px;
+.calendar-body div {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fafafa;
-    border-radius: 100px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    -ms-border-radius: 100px;
-    -o-border-radius: 100px;
+    border-radius: 9999px;
+    -webkit-border-radius: 9999px;
+    -moz-border-radius: 9999px;
+    -ms-border-radius: 9999px;
+    -o-border-radius: 9999px;
+}
+
+.calendar-body div.day {
+    height: 80px;
+}
+
+.calendar-body div:nth-child(2) {
+    color: #ff5858;
+}
+
+.calendar-body div:nth-child(2) {
+    font-weight: bold;
 }
 
 .day:hover {
@@ -622,8 +677,8 @@ body {
 }
 
 .current-day {
-    color: #F4F4F4;
-    background-color: #3A3535;
+    color: #ffffff;
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
     font-weight: bold;
 }
 
@@ -637,13 +692,23 @@ body {
     line-height: 36px;
 }
 
+.swiper-slide h4.headline {
+    font-size: 15px;
+}
+
 .nav-toggler {
+    background-color: #232020;
     box-shadow: 0 -20px 80px rgba(0, 0, 0, 6%)
+}
+
+.nav-link {
+    color: #ffffff;
 }
 
 .nav-link .icon {
     background-size: contain;
     background-position: center;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(110deg) brightness(100%) contrast(103%);
 }
 
 .i-home {
@@ -667,17 +732,14 @@ body {
 }
 
 @media only screen and (max-width: 980px) {
-    .home {
-        display: none
-    }
     .header {
-        background-position: -100px -160px;
+        background-position: -100px -175px;
     }
     .header::before,
     .footer::before {
         display: none
     }
-    .day {
+    .calendar-body div.day {
         height: 50px;
     }
     .season::after {
@@ -701,9 +763,75 @@ body {
     }
     .menubar-ul .block {
         color: #202020;
+        padding: 20px;
+        border: 1px #eeeeee solid
     }
-    .crypto .icon {
+    .menubar-ul .block:hover {
         color: #ffffff;
-        background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+        background: var(--gradint);
+    }
+    .menubar-ul .block:hover::before,
+    .menubar-ul .block.selected::before {
+        width: 0;
+    }
+    .crypto {
+        display: none;
+    }
+    .copyright {
+        margin-top: 25px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .header {
+        background-position: -100px -125px;
+    }
+    .calendar-body div.day {
+        height: 35px;
+    }
+    .calendar-body div.day {
+        font-size: 15px;
+        line-height: 36px;
+    }
+    #prevMonth,
+    #nextMonth {
+        color: transparent;
+    }
+    #prevMonth::before,
+    #nextMonth::after {
+        color: #ffffff;
+    }
+    .slider {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    .slider img {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        position: absolute;
+    }
+    .youtube-channel {
+        height: auto;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .header {
+        background-position: -100px -105px;
+    }
+    .slider .title {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .slider .paragraph {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .books .item {
+        height: auto;
     }
 }
