@@ -10,6 +10,10 @@ body {
     background-color: #FFFFFF;
 }
 
+.mobile {
+    display: none
+}
+
 .header {
     background-color: #000000;
     background-position: 100px -300px;
@@ -732,6 +736,9 @@ body {
 }
 
 @media only screen and (max-width: 980px) {
+    .mobile {
+        display: block
+    }
     .header {
         background-position: -100px -175px;
     }
