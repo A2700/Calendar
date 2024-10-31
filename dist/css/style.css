@@ -159,7 +159,7 @@ body {
 .season::after {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../images/fall.png');
+    background-image: url('../images/fall.webp');
 }
 
 .world-calendar {
