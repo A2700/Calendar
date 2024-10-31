@@ -138,6 +138,10 @@ body {
 }
 
 .season::after {
+    opacity: 0.15%
+}
+
+.season::after {
     z-index: -1;
 }
 
