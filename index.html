@@ -33,6 +33,15 @@
     <link href="./dist/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <title>گاهشمار نگارستان - ساعت و تقویم ایران</title>
+    <script>
+        if (window.innerWidth < 980) {
+            window.location.href = "https://m.example.com";
+        } else {
+            if (window.location.hostname === "irdate.org/mobile.html") {
+                window.location.href = "https://irdate.org";
+            }
+        }
+    </script>
 </head>
 <body class="home overflow-x-hidden">
     
@@ -542,20 +551,6 @@
     <script src="./dist/js/clock.js" defer></script>
     <script src="./dist/js/jalaali.min.js" defer></script>
     <script src="./dist/js/swiper-bundle.min.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-        if (screen.width <= 980) {
-        window.location.href = "mobile.html";
-        }
-        window.addEventListener('resize', function() {
-        if (window.innerWidth <= 980) {
-            window.location.href = "mobile.html";
-        }
-        });
-
-        });
-    </script>
 
 </body>
 </html>
