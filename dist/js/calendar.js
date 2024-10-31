@@ -1,14 +1,13 @@
 const monthNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const dayNames = ["ش", "ی", "د", "س", "چ", "پ", "آ"];
-const fullday = ["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "آدینه"];
 let currentMonth, currentYear;
 
 async function fetchCurrentDate() {
     try {
-        const response = await fetch('http://api.timezonedb.com/v2.1/get-time-zone?key=YOUR_API_KEY&format=json&by=zone&zone=Asia/Tehran');
+        const response = await fetch('//worldtimeapi.org/api/timezone/Asia/Tehran');
         const data = await response.json();
-        const date = new Date(data.datetime);
-        const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth() + 1, date.getDate());
+        const date = new Date(data.formatted);
+        const jalaaliDate = jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
         return {
             year: jalaaliDate.jy,
             month: jalaaliDate.jm,
@@ -34,7 +33,7 @@ async function fetchEvents(month) {
     }
 }
 
-async function renderCalendar(month, year, today) {
+async function renderCalendar(month, year, today, events) {
     const calendarBody = document.getElementById('calendarBody');
     calendarBody.innerHTML = '';
 
@@ -50,7 +49,6 @@ async function renderCalendar(month, year, today) {
     const firstDay = new Date(jalaali.toGregorian(year, month, 1).gy, jalaali.toGregorian(year, month, 1).gm - 1, 1).getDay() + 3;
     const daysInMonth = jalaali.jalaaliMonthLength(year, month);
 
-    const events = await fetchEvents(month);
     const eventElement = document.getElementById('event');
     eventElement.innerHTML = '';
 
@@ -98,7 +96,8 @@ document.getElementById('prevMonth').addEventListener('click', async () => {
         currentMonth = 12;
         currentYear--;
     }
-    await renderCalendar(currentMonth, currentYear);
+    const events = await fetchEvents(currentMonth);
+    await renderCalendar(currentMonth, currentYear, null, events);
 });
 
 document.getElementById('nextMonth').addEventListener('click', async () => {
@@ -107,14 +106,16 @@ document.getElementById('nextMonth').addEventListener('click', async () => {
         currentMonth = 1;
         currentYear++;
     }
-    await renderCalendar(currentMonth, currentYear);
+    const events = await fetchEvents(currentMonth);
+    await renderCalendar(currentMonth, currentYear, null, events);
 });
 
 (async function initializeCalendar() {
     const today = await fetchCurrentDate();
+    const events = await fetchEvents(currentMonth);
     if (today) {
         currentMonth = today.month;
         currentYear = today.year;
-        await renderCalendar(currentMonth, currentYear, today);
+        await renderCalendar(currentMonth, currentYear, today, events);
     }
 })();
