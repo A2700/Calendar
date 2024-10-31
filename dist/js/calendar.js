@@ -1,11 +1,10 @@
 const monthNames = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"];
 const dayNames = ["ش", "ی", "د", "س", "چ", "پ", "آ"];
-const fullday = ["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "آدینه"];
 let currentMonth, currentYear;
 
 async function fetchCurrentDate() {
     try {
-        const response = await fetch('https://api.timezonedb.com/v2.1/get-time-zone?key=JALAQEH0Z4RC&format=json&by=zone&zone=Asia/Tehran');
+        const response = await fetch('https://api.timezonedb.com/v2.1/get-time-zone?key=YOUR_API_KEY&format=json&by=zone&zone=Asia/Tehran');
         const data = await response.json();
         const date = new Date(data.datetime);
         const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth() + 1, date.getDate());
@@ -38,8 +37,7 @@ async function renderCalendar(month, year, today) {
     const calendarBody = document.getElementById('calendarBody');
     calendarBody.innerHTML = '';
 
-    const monthYear = document.getElementById('monthYear');
-    monthYear.textContent = ${monthNames[month - 1]} ${year};
+    document.getElementById('monthYear').textContent = `${monthNames[month - 1]} ${year}`;
 
     dayNames.forEach(day => {
         const dayElement = document.createElement('div');
@@ -49,14 +47,10 @@ async function renderCalendar(month, year, today) {
 
     const firstDay = new Date(jalaali.toGregorian(year, month, 1).gy, jalaali.toGregorian(year, month, 1).gm - 1, 1).getDay() + 3;
     const daysInMonth = jalaali.jalaaliMonthLength(year, month);
-
     const events = await fetchEvents(month);
-    const eventElement = document.getElementById('event');
-    eventElement.innerHTML = '';
 
     for (let i = 0; i < firstDay; i++) {
-        const emptyCell = document.createElement('div');
-        calendarBody.appendChild(emptyCell);
+        calendarBody.appendChild(document.createElement('div'));
     }
 
     for (let i = 1; i <= daysInMonth; i++) {
@@ -71,14 +65,10 @@ async function renderCalendar(month, year, today) {
 
         if (event) {
             const eventDiv = document.createElement('div');
-            eventDiv.textContent = ${event.icon} ${event.event};
+            eventDiv.textContent = `${event.icon} ${event.event}`;
             eventDiv.classList.add('event');
             eventDiv.style.color = event.color;
             dayCell.appendChild(eventDiv);
-
-            const eventListItem = document.createElement('div');
-            eventListItem.textContent = ${event.date}: ${event.icon} ${event.event};
-            eventElement.appendChild(eventListItem);
         }
 
         if (today && i === today.day && month === today.month && year === today.year) {
@@ -88,26 +78,19 @@ async function renderCalendar(month, year, today) {
         calendarBody.appendChild(dayCell);
     }
 
-    const currentDate = document.getElementById('currentDate');
-    currentDate.textContent = امروز ${today.day} ${monthNames[today.month - 1]} ${today.year};
+    document.getElementById('currentDate').textContent = `امروز ${today.day} ${monthNames[today.month - 1]} ${today.year}`;
 }
 
 document.getElementById('prevMonth').addEventListener('click', async () => {
-    currentMonth--;
-    if (currentMonth < 1) {
-        currentMonth = 12;
-        currentYear--;
-    }
-    await renderCalendar(currentMonth, currentYear);
+    currentMonth = (currentMonth - 1 < 1) ? 12 : currentMonth - 1;
+    currentYear = (currentMonth === 12) ? currentYear - 1 : currentYear;
+    await renderCalendar(currentMonth, currentYear, null);
 });
 
 document.getElementById('nextMonth').addEventListener('click', async () => {
-    currentMonth++;
-    if (currentMonth > 12) {
-        currentMonth = 1;
-        currentYear++;
-    }
-    await renderCalendar(currentMonth, currentYear);
+    currentMonth = (currentMonth + 1 > 12) ? 1 : currentMonth + 1;
+    currentYear = (currentMonth === 1) ? currentYear + 1 : currentYear;
+    await renderCalendar(currentMonth, currentYear, null);
 });
 
 (async function initializeCalendar() {
