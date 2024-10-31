@@ -5,7 +5,7 @@ let currentMonth, currentYear;
 
 async function fetchCurrentDate() {
     try {
-        const response = await fetch('https://worldtimeapi.org/api/timezone/Asia/Tehran');
+        const response = await fetch('http://api.timezonedb.com/v2.1/get-time-zone?key=YOUR_API_KEY&format=json&by=zone&zone=Asia/Tehran');
         const data = await response.json();
         const date = new Date(data.datetime);
         const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth() + 1, date.getDate());
