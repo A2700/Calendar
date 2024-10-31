@@ -4,10 +4,10 @@ let currentMonth, currentYear;
 
 async function fetchCurrentDate() {
     try {
-        const response = await fetch('https://api.timezonedb.com/v2.1/get-time-zone?key=JALAQEH0Z4RC&format=json&by=zone&zone=Asia/Tehran');
+        const response = await fetch('http://api.timezonedb.com/v2.1/get-time-zone?key=ALAQEH0Z4RC&format=json&by=zone&zone=Asia/Tehran');
         const data = await response.json();
-        const date = new Date(data.datetime);
-        const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth() + 1, date.getDate());
+        const date = new Date(data.formatted);
+        const jalaaliDate = jalaali.toJalaali(date.getFullYear(), date.getMonth() + 1, date.getDate());
         return {
             year: jalaaliDate.jy,
             month: jalaaliDate.jm,
@@ -33,11 +33,12 @@ async function fetchEvents(month) {
     }
 }
 
-async function renderCalendar(month, year, today) {
+async function renderCalendar(month, year, today, events) {
     const calendarBody = document.getElementById('calendarBody');
     calendarBody.innerHTML = '';
 
-    document.getElementById('monthYear').textContent = `${monthNames[month - 1]} ${year}`;
+    const monthYear = document.getElementById('monthYear');
+    monthYear.textContent = `${monthNames[month - 1]} ${year}`;
 
     dayNames.forEach(day => {
         const dayElement = document.createElement('div');
@@ -47,10 +48,13 @@ async function renderCalendar(month, year, today) {
 
     const firstDay = new Date(jalaali.toGregorian(year, month, 1).gy, jalaali.toGregorian(year, month, 1).gm - 1, 1).getDay() + 3;
     const daysInMonth = jalaali.jalaaliMonthLength(year, month);
-    const events = await fetchEvents(month);
+
+    const eventElement = document.getElementById('event');
+    eventElement.innerHTML = '';
 
     for (let i = 0; i < firstDay; i++) {
-        calendarBody.appendChild(document.createElement('div'));
+        const emptyCell = document.createElement('div');
+        calendarBody.appendChild(emptyCell);
     }
 
     for (let i = 1; i <= daysInMonth; i++) {
@@ -69,6 +73,10 @@ async function renderCalendar(month, year, today) {
             eventDiv.classList.add('event');
             eventDiv.style.color = event.color;
             dayCell.appendChild(eventDiv);
+
+            const eventListItem = document.createElement('div');
+            eventListItem.textContent = `${event.date}: ${event.icon} ${event.event}`;
+            eventElement.appendChild(eventListItem);
         }
 
         if (today && i === today.day && month === today.month && year === today.year) {
@@ -78,26 +86,36 @@ async function renderCalendar(month, year, today) {
         calendarBody.appendChild(dayCell);
     }
 
-    document.getElementById('currentDate').textContent = `امروز ${today.day} ${monthNames[today.month - 1]} ${today.year}`;
+    const currentDate = document.getElementById('currentDate');
+    currentDate.textContent = `امروز ${today.day} ${monthNames[today.month - 1]} ${today.year}`;
 }
 
 document.getElementById('prevMonth').addEventListener('click', async () => {
-    currentMonth = (currentMonth - 1 < 1) ? 12 : currentMonth - 1;
-    currentYear = (currentMonth === 12) ? currentYear - 1 : currentYear;
-    await renderCalendar(currentMonth, currentYear, null);
+    currentMonth--;
+    if (currentMonth < 1) {
+        currentMonth = 12;
+        currentYear--;
+    }
+    const events = await fetchEvents(currentMonth);
+    await renderCalendar(currentMonth, currentYear, null, events);
 });
 
 document.getElementById('nextMonth').addEventListener('click', async () => {
-    currentMonth = (currentMonth + 1 > 12) ? 1 : currentMonth + 1;
-    currentYear = (currentMonth === 1) ? currentYear + 1 : currentYear;
-    await renderCalendar(currentMonth, currentYear, null);
+    currentMonth++;
+    if (currentMonth > 12) {
+        currentMonth = 1;
+        currentYear++;
+    }
+    const events = await fetchEvents(currentMonth);
+    await renderCalendar(currentMonth, currentYear, null, events);
 });
 
 (async function initializeCalendar() {
     const today = await fetchCurrentDate();
+    const events = await fetchEvents(currentMonth);
     if (today) {
         currentMonth = today.month;
         currentYear = today.year;
-        await renderCalendar(currentMonth, currentYear, today);
+        await renderCalendar(currentMonth, currentYear, today, events);
     }
 })();
