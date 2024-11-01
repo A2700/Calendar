@@ -112,10 +112,10 @@ document.getElementById('nextMonth').addEventListener('click', async () => {
 
 (async function initializeCalendar() {
     const today = await fetchCurrentDate();
-    const events = await fetchEvents(currentMonth);
     if (today) {
         currentMonth = today.month;
         currentYear = today.year;
+        const events = await fetchEvents(currentMonth);
         await renderCalendar(currentMonth, currentYear, today, events);
     }
 })();
