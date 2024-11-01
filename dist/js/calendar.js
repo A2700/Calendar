@@ -96,8 +96,9 @@ document.getElementById('prevMonth').addEventListener('click', async () => {
         currentMonth = 12;
         currentYear--;
     }
+    const today = await fetchCurrentDate();
     const events = await fetchEvents(currentMonth);
-    await renderCalendar(currentMonth, currentYear, null, events);
+    await renderCalendar(currentMonth, currentYear, today, events); 
 });
 
 document.getElementById('nextMonth').addEventListener('click', async () => {
@@ -106,8 +107,9 @@ document.getElementById('nextMonth').addEventListener('click', async () => {
         currentMonth = 1;
         currentYear++;
     }
+    const today = await fetchCurrentDate();
     const events = await fetchEvents(currentMonth);
-    await renderCalendar(currentMonth, currentYear, null, events);
+    await renderCalendar(currentMonth, currentYear, today, events);
 });
 
 (async function initializeCalendar() {
