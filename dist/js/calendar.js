@@ -7,7 +7,7 @@ async function fetchCurrentDate() {
         const response = await fetch('https://api.timezonedb.com/v2.1/get-time-zone?key=JALAQEH0Z4RC&format=json&by=zone&zone=Asia/Tehran');
         const data = await response.json();
         const date = new Date(data.formatted);
-        const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth() + 1, date.getDate());
+        const jalaaliDate = jalaali.toJalaali(date.getFullYear() + 1300, date.getMonth(), date.getDate());
         return {
             year: jalaaliDate.jy,
             month: jalaaliDate.jm,
