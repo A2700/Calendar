@@ -38,7 +38,7 @@ var swiper = new Swiper(".mySwiper", {
 
 // Timer
 document.addEventListener('DOMContentLoaded', function () {
-const countdownDate = new Date("December 20, 2024 21:00:00").getTime();
+const countdownDate = new Date("January 2, 2025 01:30:00").getTime();
         const updateCountdown = () => {
         const now = new Date().getTime();
         const distance = countdownDate - now;
