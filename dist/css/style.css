@@ -3,6 +3,7 @@
 
 :root {
     --gradint: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    --gradint-winter: linear-gradient(45deg, #cfe8ef, #aed1e6, #85c7de);
 }
 
 body {
@@ -10,13 +11,9 @@ body {
     background-color: #FFFFFF;
 }
 
-.mobile {
-    display: none
-}
-
 .header {
     background-color: #000000;
-    background-position: 100px -300px;
+    background-position: 50px -340px;
     background-size: contain;
     background-attachment:fixed;
     background-repeat: no-repeat;
@@ -56,30 +53,6 @@ body {
     font-family: 'KalamehWeb';
 }
 
-.settings .btn {
-    background-color: #ffffff
-}
-
-.settings .btn > i.fa-gear {
-    color: #3A3535;
-}
-
-.settings .btn > i.fa-gear {
-    transition: .2s all ease-in-out;
-    -webkit-transition: .2s all ease-in-out;
-    -moz-transition: .2s all ease-in-out;
-    -ms-transition: .2s all ease-in-out;
-    -o-transition: .2s all ease-in-out;
-}
-
-.settings .btn > i.fa-gear:hover {
-    transform: rotate(64deg);
-    -webkit-transform: rotate(64deg);
-    -moz-transform: rotate(64deg);
-    -ms-transform: rotate(64deg);
-    -o-transform: rotate(64deg);
-}
-
 .dclock {
     direction: ltr
 }
@@ -103,18 +76,9 @@ body {
     box-shadow: 0 8px 80px rgba(0, 0, 0, 6%)
 }
 
-.quote::after,
 .quote::before {
     top: 2px;
     position: relative
-}
-
-.quote::after {
-    content: '\f10d';
-}
-
-.quote::after {
-    margin-right: 6px;
 }
 
 .quote::before {
@@ -125,12 +89,11 @@ body {
     margin-left: 6px;
 }
 
-.quote::after,
 .quote::before {
-    opacity: 20%;
+    opacity: 95%;
+    color: #91BEDA
 }
 
-.quote::after,
 .quote::before {
     font-size: 21px;
     font-weight: bold;
@@ -151,7 +114,7 @@ body {
 
 .season::after {
     width: 100%;
-    height: 200px
+    height: 400px
 }
 
 .season::after {
@@ -163,7 +126,7 @@ body {
 .season::after {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('../images/fall.webp');
+    background-image: url('../images/winter-snow.png');
 }
 
 .world-calendar {
@@ -173,13 +136,14 @@ body {
 .moon-calendar,
 .world-calendar,
 .iranian-calendar {
-    border: 1px #F4F4F4 solid;
+    border: 1px #D7E4F4 solid;
+    background-color: rgba(255, 255, 255, 45%);
 }
 
 .moon-calendar:hover,
 .world-calendar:hover,
 .iranian-calendar:hover {
-    border: 1px #FF7315 solid;
+    border: 1px #91BEDA solid;
 }
 
 
@@ -241,10 +205,11 @@ body {
 }
 
 .btn-event {
-    border: 1px #eeeeee solid
+    border: 1px #91BEDA solid;
+    background-color: rgba(255, 255, 255, 45%);
 }
 
-.slider {
+.slider .container {
     z-index: 1;
     background-color: #232020;
 }
@@ -287,7 +252,7 @@ body {
 }
 
 .timer .w-12 {
-    background-color: #F4F4F4;
+    background-color: #FAFAFA;
 }
 
 .timer .text-lg {
@@ -303,11 +268,11 @@ body {
 
   .analog-clock {
     top: -120px;
-    left: 155px
+    left: 195px
   }
   
   .analog-clock {
-    border: 1px #eeeeee solid;
+    border: 1px #D7E4F4 solid;
     background-color: rgba(255, 255, 255, 80%);
     background-image: url('../images/256-face.png');
   }
@@ -418,11 +383,11 @@ body {
     height: 3.5rem
 }
   
-.youtube-channel {
+.youtube-channel .container {
     background-color: #000000;
 }
 
-.youtube-channel {
+.youtube-channel .container {
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
@@ -454,7 +419,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #f09819 !important
+    color: #91BEDA !important
 }
 
 .books .headline {
@@ -474,7 +439,7 @@ body {
     -ms-transition: 0.6s ease all;
     -o-transition: 0.6s ease all;
     box-shadow:
-    1px 1px 0 1px #f9f9fb,
+    1px 1px 0 1px #91BEDA,
     -1px 0 10px 0 rgba(34, 33, 81, 0.05),
     0 28px 28px 0 rgba(34, 33, 81, 0.07);
 }
@@ -557,7 +522,7 @@ body {
     -moz-border-radius: 36px;
     -ms-border-radius: 36px;
     -o-border-radius: 36px;
-    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    background-image: var(--gradint-winter)
 }
 
 .menubar-ul .block::before {
@@ -587,8 +552,8 @@ body {
 }
 
 .crypto .icon:hover {
-    color: #ffffff;
-    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    color: #133c55;
+    background-image: var(--gradint-winter)
 }
 
 #prevMonth::before {
@@ -624,20 +589,20 @@ body {
 }
 
 .calendar-header {
-    padding: 15px;
-    color: #ffffff;
-    border-radius: 36px;
-    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
-    -webkit-border-radius: 36px;
-    -moz-border-radius: 36px;
-    -ms-border-radius: 36px;
-    -o-border-radius: 36px;
+    padding: 21px;
+    color: #133c55;
+    border-radius: 9px;
+    background-image: var(--gradint-winter);
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
 }
 
 .calendar-body {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    gap: 12px;
     text-align: center
 }
 
@@ -646,7 +611,7 @@ body {
 .calendar-body  div:nth-child(30),
 .calendar-body  div:nth-child(37),
 .calendar-body  div:nth-child(44) {
-    background-color: rgba(255, 88, 88, 10%)
+    background-color: #cfe8ef
 } 
 
 
@@ -659,19 +624,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 9999px;
-    -webkit-border-radius: 9999px;
-    -moz-border-radius: 9999px;
-    -ms-border-radius: 9999px;
-    -o-border-radius: 9999px;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -o-border-radius: 9px;
 }
 
 .calendar-body div.day {
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    margin: auto;
 }
 
 .calendar-body div:nth-child(2) {
-    color: #ff5858;
+    color: #B4D1E7;
 }
 
 .calendar-body div:nth-child(2) {
@@ -679,14 +646,14 @@ body {
 }
 
 .day:hover {
-    color: #ffffff;
-    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    color: #133c55;
+    background-image: var(--gradint-winter);
     cursor: pointer;
 }
 
 .current-day {
-    color: #ffffff;
-    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+    color: #133c55;
+    background-image: var(--gradint-winter);
     font-weight: bold;
 }
 
@@ -765,32 +732,6 @@ body {
     .season::after {
         position: fixed;
     }
-    .menubar-ul .block:hover::before,
-    .menubar-ul .block.selected::before {
-        width: 20%
-    }
-    .footer {
-        background-color: #ffffff;
-    }
-    .menubar-ul .block {
-        color: #202020;
-        padding: 20px;
-        border: 1px #eeeeee solid
-    }
-    .menubar-ul .block:hover {
-        color: #ffffff;
-        background: var(--gradint);
-    }
-    .menubar-ul .block:hover::before,
-    .menubar-ul .block.selected::before {
-        width: 0;
-    }
-    .crypto {
-        display: none;
-    }
-    .copyright {
-        margin-top: 25px;
-    }
 }
 @media only screen and (max-width: 400px) {
     .header {
@@ -811,10 +752,6 @@ body {
     #nextMonth::after {
         color: #ffffff;
     }
-    .slider {
-        padding-left: 32px;
-        padding-right: 32px;
-    }
     .slider img {
         top: 0;
         left: 0;
@@ -822,11 +759,6 @@ body {
         right: 0;
         margin: auto;
         position: absolute;
-    }
-    .youtube-channel {
-        height: auto;
-        padding-top: 0;
-        padding-bottom: 0;
     }
 }
 
