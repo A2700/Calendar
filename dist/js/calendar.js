@@ -46,7 +46,7 @@ async function renderCalendar(month, year, today, events) {
         calendarBody.appendChild(dayElement);
     });
 
-    const firstDay = new Date(jalaali.toGregorian(year, month, 1).gy, jalaali.toGregorian(year, month, 1).gm - 1, 1).getDay() + 2;
+    const firstDay = new Date(jalaali.toGregorian(year, month, 1).gy, jalaali.toGregorian(year, month, 1).gm - 1, 1).getDay() + 1;
     const daysInMonth = jalaali.jalaaliMonthLength(year, month);
 
     const eventElement = document.getElementById('event');
