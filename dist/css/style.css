@@ -638,6 +638,10 @@ body {
     color: #b7094c;
 }
 
+.calendar-body div:nth-child(2):hover {
+    color: #ffffff;
+}
+
 .calendar-body div:nth-child(2) {
     font-weight: bold;
 }
