@@ -36,8 +36,8 @@
 </head>
 <body class="home overflow-x-hidden">
     
-    <header class="header relative h-40 mx-10 mt-5 md:h-20 sm:h-20 mb-12 md:mb-6 sm:mb-6 rounded-3xl md:rounded-br-lg sm:rounded-br-lg rounded-bl-3xl md:rounded-bl-lg sm:rounded-bl-lg"  id="header">
-        <div class="container max-w-full px-10">
+    <header class="header relative h-40 mx-10 md:mx-5 sm:mx-5 mt-5 md:h-20 sm:h-20 mb-12 md:mb-6 sm:mb-6 rounded-3xl md:rounded-br-lg sm:rounded-br-lg rounded-bl-3xl md:rounded-bl-lg sm:rounded-bl-lg"  id="header">
+        <div class="container max-w-full px-10 md:px-5 sm:px-5">
             <div class="flex flex-row h-40 md:h-20 sm:h-20 items-center">
     
                 <div class="basis-auto">
@@ -60,7 +60,7 @@
     </header>
     
     <section class="season relative mb-9 md:mb-0 sm:mb-0">
-        <div class="container max-w-full px-10">
+        <div class="container max-w-full px-10 md:px-5 sm:px-5">
             <div class="flex flex-row flex-wrap">
     
                 <div class="basis-2/3 md:basis-full sm:basis-full">
@@ -91,7 +91,7 @@
     </section>
     
     <div class="time w-1/3 md:w-full sm:w-full h-[300px] float-right md:float-none sm:float-none md:h-auto sm:h-auto">
-        <div class="container max-w-full px-10 pb-5">
+        <div class="container max-w-full px-10 md:px-5 sm:px-5 pb-5">
             <div class="grid grid-cols-1 md:grid-cols-1 sm:grid-cols-1 gap-7">
     
                 <div class="item iranian-calendar relative h-20 rounded-lg md:backdrop-blur-md sm:backdrop-blur-md">
@@ -123,7 +123,7 @@
     </div>
     
     <section class="slider w-2/3 md:w-full sm:w-full h-[300px] float-left md:mt-9 sm:mt-9 md:mb-12 sm:mb-12 md:float-none sm:float-none relative pl-10 md:pr-10 sm:pr-10 overflow-hidden">
-        <div class="container h-[300px] max-w-full px-10 md:pt-10 md:pb-10 sm:pt-10 sm:pb-10 rounded-2xl overflow-hidden">
+        <div class="container h-[300px] max-w-full px-10 md:px-5 sm:px-5 md:pt-10 md:pb-10 sm:pt-10 sm:pb-10 rounded-2xl overflow-hidden">
             <div class="flex flex-row md:flex-col-reverse sm:flex-col-reverse h-[300px] items-center">
     
                 <div class="basis-1/3 md:basis-full sm:basis-full">
@@ -170,7 +170,7 @@
     <div class="clear-both"></div>
     
     <main class="wrapper mt-24 md:mt-3 sm:mt-3 mb-12" id="wrapper">
-        <div class="container max-w-full px-10">
+        <div class="container max-w-full px-10 md:px-5 sm:px-5">
             <div class="flex flex-row md:flex-col sm:flex-col">
     
                 <div class="basis-1/2 md:basis-full sm:basis-full">
@@ -180,12 +180,12 @@
                             <span id="monthYear"></span>
                             <button id="nextMonth">ماه بعد</button>
                         </div>
-                        <div class="calendar-body" id="calendarBody"></div>
+                        <div class="calendar-body grid grid-cols-7 grid-rows-7 gap-12 md:gap-0 sm:gap-0" id="calendarBody"></div>
                         <div id="currentDate"></div>
                     </div>
                 </div>
     
-                <button class="btn-event hidden md:block sm:block mt-5 pt-5 pb-5 rounded-md font-light text-base text-center md:backdrop-blur-md sm:backdrop-blur-md" id="btn-event">مناسبت ها</button>
+                <button class="btn-event hidden md:block sm:block pt-5 pb-5 rounded-md font-light text-base text-center md:backdrop-blur-md sm:backdrop-blur-md" id="btn-event">مناسبت ها</button>
 
                 <div class="basis-1/2 md:basis-full sm:basis-full">
                     <div class="holiday h-full block md:hidden sm:hidden pt-0 md:pt-14 sm:pt-14 pr-14 md:pr-0 sm:pr-0" id="holiday">
@@ -473,7 +473,7 @@
     <div class="clear-both"></div>
     
     <footer class="footer mt-8 md:mt-0 sm:mt-0 mb-0 relative overflow-hidden rounded-tr-3xl rounded-tl-3xl">
-        <div class="container max-w-full px-10 pt-16 md:pt-6 sm:pt-6 pb-16 md:pb-6 sm:pb-6">
+        <div class="container max-w-full px-10 md:px-5 sm:px-5 pt-16 md:pt-6 sm:pt-6 pb-16 md:pb-6 sm:pb-6">
             <div class="flex flex-row flex-wrap">
     
                 <div class="basis-full">
@@ -498,7 +498,7 @@
                     <div class="crypto mt-0 md:mt-6 sm:mt-6">
                         <div class="flex flex-row justify-start">
     
-                            <div class="item mr-6 md:mr-0 sm:mr-0 ml-0 md:ml-6 sm:ml-6">
+                            <div class="item">
                                 <a href="#" class="link h-12 rounded-lg text-lg text-white">
                                     <div class="icon w-12 h-12 flex items-center justify-center rounded-lg">
                                         <i class="fa-solid fa-mug-hot pr-4 pl-4"></i>
