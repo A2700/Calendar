@@ -3,7 +3,7 @@
 
 :root {
     --gradint: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
-    --gradint-winter: linear-gradient(45deg, #cfe8ef, #aed1e6, #85c7de);
+    --gradint-winter: linear-gradient(60deg, #00a6fb 0%, #0582ca 100%);
 }
 
 body {
@@ -90,8 +90,7 @@ body {
 }
 
 .quote::before {
-    opacity: 95%;
-    color: #91BEDA
+    color: #00a6fb
 }
 
 .quote::before {
@@ -552,7 +551,7 @@ body {
 }
 
 .crypto .icon:hover {
-    color: #133c55;
+    color: #FFFFFF;
     background-image: var(--gradint-winter)
 }
 
@@ -590,7 +589,7 @@ body {
 
 .calendar-header {
     padding: 21px;
-    color: #133c55;
+    color: #FFFFFF;
     border-radius: 9px;
     background-image: var(--gradint-winter);
     -webkit-border-radius: 9px;
@@ -600,9 +599,6 @@ body {
 }
 
 .calendar-body {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 12px;
     text-align: center
 }
 
@@ -611,7 +607,8 @@ body {
 .calendar-body  div:nth-child(30),
 .calendar-body  div:nth-child(37),
 .calendar-body  div:nth-child(44) {
-    background-color: #cfe8ef
+    color: #b7094c;
+    font-weight: 900;
 } 
 
 
@@ -638,7 +635,7 @@ body {
 }
 
 .calendar-body div:nth-child(2) {
-    color: #B4D1E7;
+    color: #b7094c;
 }
 
 .calendar-body div:nth-child(2) {
@@ -646,13 +643,13 @@ body {
 }
 
 .day:hover {
-    color: #133c55;
+    color: #FFFFFF;
     background-image: var(--gradint-winter);
     cursor: pointer;
 }
 
 .current-day {
-    color: #133c55;
+    color: #FFFFFF;
     background-image: var(--gradint-winter);
     font-weight: bold;
 }
@@ -717,9 +714,6 @@ body {
     .footer::before {
         display: none
     }
-    .calendar-body div.day {
-        height: 50px;
-    }
     .season::after {
         top: 0
     }
@@ -727,7 +721,7 @@ body {
         z-index: -2
     }
     .season::after {
-        opacity: 0.07
+        opacity: 0.04
     }
     .season::after {
         position: fixed;
@@ -738,11 +732,8 @@ body {
         background-position: -100px -125px;
     }
     .calendar-body div.day {
-        height: 35px;
-    }
-    .calendar-body div.day {
-        font-size: 15px;
-        line-height: 36px;
+        font-size: 14px;
+        line-height: 40px;
     }
     #prevMonth,
     #nextMonth {
