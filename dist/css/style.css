@@ -611,6 +611,14 @@ body {
     font-weight: 900;
 } 
 
+.calendar-body  div:nth-child(16):hover,
+.calendar-body  div:nth-child(23):hover,
+.calendar-body  div:nth-child(30):hover,
+.calendar-body  div:nth-child(37):hover,
+.calendar-body  div:nth-child(44):hover {
+    color: #FAFAFA;
+    font-weight: normal;
+}
 
 .calendar-body div {
     font-size: 20px;
@@ -636,10 +644,6 @@ body {
 
 .calendar-body div:nth-child(2) {
     color: #b7094c;
-}
-
-.calendar-body div:nth-child(2):hover {
-    color: #ffffff;
 }
 
 .calendar-body div:nth-child(2) {
@@ -761,13 +765,16 @@ body {
     .header {
         background-position: -100px -105px;
     }
-    .slider .title {
-        padding-left: 15px;
-        padding-right: 15px;
+    .slider {
+        height: auto;
+        padding-bottom: 45px;
     }
-    .slider .paragraph {
-        padding-left: 20px;
-        padding-right: 20px;
+    .calendar-body div.day {
+        font-size: 17px;
+    }
+    .calendar-body div.day {
+        width: 40px;
+        height: 40px;
     }
     .swiper-slide .item {
         height: auto !important
