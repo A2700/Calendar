@@ -1,5 +1,4 @@
-@import url('../fonts//font.css');
-@import url('../fonts/fontiran.css');
+@import url('./fontiran.css');
 
 :root {
     --blur: rgba(0, 0, 0, 60%)
@@ -13,7 +12,7 @@ body {
 }
 
 body {
-    font-family: 'Yekan Bakh';
+    font-family: 'IRANSansX';
 }
 
 body {
