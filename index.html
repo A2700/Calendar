@@ -37,8 +37,8 @@
 <body class="h-screen overflow-auto 2xl:overflow-hidden xl:overflow-hidden">
 
     <div class="title hidden">
-        <h1 class="headline"></h1>
-        <h2 class="headline"></h2>
+        <h1 class="headline">ساعت و تقویم ایران</h1>
+        <h2 class="headline">گاهشمار ۲۷۰۰ ساله نگارستان یک تقویم آنلاین ایرانی، که از مبدا تاریخ امپراطوری مادها در زمان پادشاهی دیاکو محاسبه شده است.</h2>
     </div>
   
     <main class="container px-10 mx-auto mt-16">
@@ -215,17 +215,759 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Initialize Swiper -->
 
+    <script>
+    fetch('/components/book.json')
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('book-container');
+
+        console.log(data);
+
+        data.forEach(item => {
+            const bookElement = document.createElement('div');
+            bookElement.classList.add('swiper-slide');
+
+            bookElement.innerHTML = `
+                <div class="flex flex-row">
+                    <!-- تصویر کتاب -->
+                    <div class="basis-72">
+                        <div class="image">
+                            <img src="${item.bookImage}" class="thumbnail h-[275px] max-w-full max-h-full object-cover" alt="" />
+                        </div>
+                    </div>
+
+                    <!-- محتوای کتاب -->
+                    <div class="basis-auto">
+                        <div class="content p-9">
+                            <div class="title">
+                                <h3 class="headline text-xl font-bold">
+                                    <a href="#" class="link text-white">${item.title}</a>
+                                </h3>
+                            </div>
+                            <h4 class="headline pt-3 text-sm font-light">
+                                <p class="paragraph leading-8 text-white">${item.summary}</p>
+                            </h4>
+                        </div>
+
+                        <!-- نویسنده -->
+                        <div class="auther">
+                            <div class="avatar w-12 h-12 float-right mr-10 ml-4">
+                                <img src="${item.authorImage}" class="thumbnail w-full h-full max-w-full max-h-full object-contain rounded-full" alt="" />
+                            </div>
+                            <a href="#" class="link text-base font-semibold leading-6 text-white">${item.authorName}</a>
+                            <div class="job">
+                                <span class="job text-sm font-thin text-white">${item.authorJob}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.appendChild(bookElement);
+        });
+
+        const swiper = new Swiper('.mySwiper', {
+            loop: true, 
+            pagination: {
+                el: ".swiper-pagination",
+            },
+            autoplay: {
+                delay: 10000, 
+            },
+        });
+    })
+    .catch(error => console.error('Error loading the JSON file:', error)); 
+
+  </script>
+    <script>
+function toPersianDigits(num) {
+    const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return num.toString().replace(/\d/g, digit => persianDigits[parseInt(digit)]);
+}
+
+const gregorianMonths = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+const persianMonths = [
+    "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
+    "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"
+];
+
+function gregorianToJalali(gy, gm, gd) {
+    var g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    var jy = (gy <= 1600) ? 0 : 979;
+    gy -= (gy <= 1600) ? 621 : 1600;
+    var gy2 = (gm > 2) ? (gy + 1) : gy;
+    var days = (365 * gy) + Math.floor((gy2 + 3) / 4) - Math.floor((gy2 + 99) / 100) + Math.floor((gy2 + 399) / 400) - 80 + gd + g_d_m[gm - 1];
+    jy += 33 * Math.floor(days / 12053); days %= 12053;
+    jy += 4 * Math.floor(days / 1461); days %= 1461;
+    if (days > 365) { jy += Math.floor((days - 1) / 365); days = (days - 1) % 365; }
+    var jm = (days < 186) ? 1 + Math.floor(days / 31) : 7 + Math.floor((days - 186) / 30);
+    var jd = 1 + ((days < 186) ? (days % 31) : ((days - 186) % 30));
+    return [jy, jm, jd];
+}
+
+let holidayss = {};
+
+fetch('/components/h.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        holidayss = data;
+        console.log('h.json loaded:', JSON.stringify(holidayss));
+        displayDate();
+    })
+    .catch(error => console.error('Error loading h.json:', error));
+
+function checkHoliday(persianDay, persianMonth) {
+    const eventPersian = document.querySelector('.eventPersian');
+    if (!eventPersian) {
+        console.error('eventPersian not found in DOM');
+        return;
+    }
+    console.log('eventPersian found:', eventPersian);
+
+    const eventIcon = eventPersian.querySelector('.eventIcon');
+    if (!eventIcon) {
+        console.error('eventIcon not found inside eventPersian');
+        return;
+    }
+    console.log('eventIcon found:', eventIcon);
+
+    if (!holidayss || Object.keys(holidayss).length === 0) {
+        console.error('holidayss is empty or not loaded yet');
+        eventPersian.style.display = 'none';
+        return;
+    }
+    console.log('holidays data:', JSON.stringify(holidayss));
+
+    const monthHolidays = holidayss[persianMonth];
+    console.log(`Holidays for ${persianMonth}:`, monthHolidays);
+
+    if (!monthHolidays || !Array.isArray(monthHolidays)) {
+        console.log(`No holidays found for ${persianMonth}`);
+        eventPersian.style.display = 'none';
+        return;
+    }
+
+    const matchingHoliday = monthHolidays.find(h => h.day === persianDay);
+    console.log('Matching holiday:', matchingHoliday);
+
+    if (matchingHoliday) {
+        eventPersian.style.display = 'block';
+        console.log('eventPersian set to display: block');
+
+        const imageUrl = `../dist/images/year/${matchingHoliday.image}`;
+        eventIcon.style.backgroundImage = `url('${imageUrl}')`;
+        console.log(`Image set: ${imageUrl}`);
+
+        const img = new Image();
+        img.src = imageUrl;
+        img.onload = () => console.log('Image loaded successfully:', imageUrl);
+        img.onerror = () => console.error('Image failed to load:', imageUrl);
+    } else {
+        eventPersian.style.display = 'none';
+        console.log('No matching holiday, eventPersian set to display: none');
+    }
+}
+
+function displayDate() {
+    const today = new Date();
+    const gregorianDay = today.getDate();
+    const gregorianMonthIndex = today.getMonth(); // 0-based
+    const gregorianYear = today.getFullYear();
+
+    const [persianYear, persianMonthIndex, persianDay] = gregorianToJalali(gregorianYear + 1300, gregorianMonthIndex + 1, gregorianDay);
+    const persianMonth = persianMonths[persianMonthIndex - 1];
+    const gregorianMonth = gregorianMonths[gregorianMonthIndex];
+
+    document.getElementById("number-fa").innerHTML = `${toPersianDigits(persianDay)} ${persianMonth}`;
+    document.getElementById("year-fa").innerHTML = toPersianDigits(persianYear);
+    document.getElementById("number-en").innerHTML = `${gregorianDay} ${gregorianMonth}`;
+    document.getElementById("year-en").innerHTML = gregorianYear;
+
+    console.log(`Today: ${persianYear}/${persianMonthIndex}/${persianDay} (${persianMonth})`);
+
+    checkHoliday(persianDay, persianMonth);
+}
+    </script>
+    <script>
+const months = [
+    "فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور",
+    "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"
+];
+const monthLengths = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
+const daysOfWeek = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
+
+let selectedYear, selectedMonth;
+
+const calendarElement = document.getElementById('calendar-days');
+const calendarTitle = document.getElementById('calendar-title');
+const loadingElement = document.getElementById('loading');
+
+function toggleLoading(show) {
+    loadingElement.style.display = show ? 'flex' : 'none';
+}
+
+function isLeapYear(jy) {
+    let mod = jy % 33;
+    return [1, 5, 9, 13, 17, 22, 26, 30].includes(mod);
+}
+
+function getTodayJalali() {
+    const today = new Date();
+    return gregorianToJalali(today.getFullYear() + 1300, today.getMonth() + 1, today.getDate());
+}
+
+function jalaliToGregorian(jy, jm, jd) {
+    let gy, gm, gd, days;
+    const sal_a = [0, 31, ((jy % 4 === 3 && ((jy + 1) % 33) >= 16) || ((jy + 1) % 33) === 0) ? 30 : 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    jy += 1595;
+    days = -355668 + (365 * jy) + Math.floor(jy / 33) * 8 + Math.floor(((jy % 33) + 3) / 4) + jd;
+    for (let i = 0; i < jm; i++) days += sal_a[i];
+    gy = 400 * Math.floor(days / 146097);
+    days %= 146097;
+    if (days > 36524) {
+        gy += 100 * Math.floor(--days / 36524);
+        days %= 36524;
+        if (days >= 365) days++;
+    }
+    gy += 4 * Math.floor(days / 1461);
+    days %= 1461;
+    if (days > 365) {
+        gy += Math.floor((days - 1) / 365);
+        days = (days - 1) % 365;
+    }
+    for (gm = 0; gm < 12 && days >= sal_a[gm + 1]; gm++) days -= sal_a[gm + 1];
+    gd = days + 1;
+    return [gy, gm + 1, gd];
+}
+
+function gregorianToJalali(gy, gm, gd) {
+    let jy, jm, jd, gy2, days;
+    const sal_a = [0, 31, ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    gy2 = (gm > 2) ? (gy + 1) : gy;
+    days = 355666 + (365 * gy) + Math.floor((gy2 + 3) / 4) - Math.floor((gy2 + 99) / 100) + Math.floor((gy2 + 399) / 400) + gd;
+    for (let i = 0; i < gm; i++) days += sal_a[i];
+    jy = -1595 + (33 * Math.floor(days / 12053));
+    days %= 12053;
+    jy += 4 * Math.floor(days / 1461);
+    days %= 1461;
+    if (days > 365) {
+        jy += Math.floor((days - 1) / 365);
+        days = (days - 1) % 365;
+    }
+    const jm_list = [0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336];
+    for (jm = 1; jm <= 12 && days >= jm_list[jm]; jm++);
+    jd = days - jm_list[jm - 1] + 1;
+    return [jy, jm, jd];
+}
+
+function toPersianDigits(num) {
+    const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+    return num.toString().replace(/\d/g, digit => persianDigits[parseInt(digit)]);
+}
+
+function simulateAjaxDelay() {
+    return new Promise(resolve => setTimeout(resolve, 1000)); // 1 ثانیه تاخیر
+}
+
+function applyLazyLoading() {
+    const days = document.querySelectorAll('.calendar-table .day:not(.loaded)');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('loaded');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    days.forEach(day => observer.observe(day));
+}
+
+let holidays = {}; 
+
+fetch('/components/holiday.json')
+    .then(response => response.json())
+    .then(data => {
+        holidays = data;
+        const [todayY, todayM] = getTodayJalali();
+        selectedYear = todayY;
+        selectedMonth = todayM;
+        renderCalendar(selectedYear, selectedMonth);
+    })
+    .catch(error => console.error('Error loading holidays JSON:', error));
+
+    const holidayListElement = document.getElementById('holiday-list');
+holidayListElement.innerHTML = ''; 
+if (window.holidayTimer) clearInterval(window.holidayTimer);
+
+async function renderCalendar(jy, jm) {
+    toggleLoading(true);
+    await simulateAjaxDelay(); 
+    calendarElement.innerHTML = '';
+
+    daysOfWeek.forEach(day => {
+        const el = document.createElement('div');
+        el.classList.add('day');
+        el.innerText = day;
+        calendarElement.appendChild(el);
+    });
+
+    let totalDays = monthLengths[jm - 1];
+    if (jm === 12 && isLeapYear(jy)) totalDays = 30;
+
+    function getJalaliDayOfWeek(jy, jm, jd) {
+        const baseYear = 1300;
+        const baseDayOfWeek = 4; // جمعه
+        const monthDays = [0, 31, 62, 93, 124, 155, 186, 216, 246, 276, 306, 336];
+        let daysPassed = 0;
+
+        for (let year = baseYear; year < jy; year++) {
+            daysPassed += isLeapYear(year) ? 366 : 365;
+        }
+
+        daysPassed += monthDays[jm - 1];
+        daysPassed += jd - 1;
+
+        return (baseDayOfWeek + daysPassed) % 7;
+    }
+
+    const startDay = getJalaliDayOfWeek(jy, jm, 1);
+
+    const prevMonth = jm === 1 ? 12 : jm - 1;
+    const prevYear = jm === 1 ? jy - 1 : jy;
+    let prevMonthDays = monthLengths[prevMonth - 1];
+    if (prevMonth === 12 && isLeapYear(prevYear)) prevMonthDays = 30;
+
+    const today = getTodayJalali();
+    const monthHolidays = holidays[months[jm - 1].toLowerCase()] || [];
+    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    for (let i = prevMonthDays - startDay + 1; i <= prevMonthDays; i++) {
+        const el = document.createElement('div');
+        el.classList.add('day', 'opacity-20', 'prev-month');
+        el.textContent = toPersianDigits(i);
+        calendarElement.appendChild(el);
+    }
     
-<!-- Start of OpenWidget (www.openwidget.com) code -->
-<script>
-  window.__ow = window.__ow || {};
-  window.__ow.organizationId = "ea24c43a-4b8f-4046-995c-9071d32cd4cc";
-  window.__ow.integration_name = "manual_settings";
-  window.__ow.product_name = "openwidget";   
-  ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[OpenWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.openwidget.com/openwidget.js",t.head.appendChild(n)}};!n.__ow.asyncInit&&e.init(),n.OpenWidget=n.OpenWidget||e}(window,document,[].slice))
-</script>
-<noscript>You need to <a href="https://www.openwidget.com/enable-javascript" rel="noopener nofollow">enable JavaScript</a> to use the communication tool powered by <a href="https://www.openwidget.com/" rel="noopener nofollow" target="_blank">OpenWidget</a></noscript>
-<!-- End of OpenWidget code -->
+    document.getElementById('holiday-list').innerHTML = ''; 
+if (window.holidayTimer) {
+    clearInterval(window.holidayTimer);
+    window.holidayTimer = null; 
+}
+    
+    for (let dayCounter = 1; dayCounter <= totalDays; dayCounter++) {
+        const el = document.createElement('div');
+        el.classList.add('day');
+        el.textContent = toPersianDigits(dayCounter);
+
+        function displayHolidays(jy, jm, dayCounter) {
+    const holidayListElement = document.getElementById('holiday-list');
+    holidayListElement.innerHTML = ''; 
+    
+    const monthHolidays = holidays[months[jm - 1].toLowerCase()] || [];
+    const holiday = monthHolidays.filter(h => h.day === dayCounter);
+    
+    if (holiday.length > 0) {
+        if (holiday.length === 1) {
+            const h = holiday[0];
+            const spanElement = document.createElement('span');
+            spanElement.id = h.id;
+            spanElement.textContent = h.name;
+            holidayListElement.appendChild(spanElement);
+
+            const imgElement = document.createElement('img');
+            imgElement.src = `./dist/images/holiday/${h.image}`;
+            imgElement.classList.add('holiday-img');
+            holidayListElement.appendChild(imgElement);
+        } else {
+            let holidayCounter = 0;
+
+            const changeHolidayContent = () => {
+                holidayListElement.innerHTML = ''; 
+                const currentHoliday = holiday[holidayCounter];
+                const spanElement = document.createElement('span');
+                spanElement.id = currentHoliday.id;
+                spanElement.textContent = currentHoliday.name;
+                holidayListElement.appendChild(spanElement);
+
+                const imgElement = document.createElement('img');
+                imgElement.src = `./dist/images/holiday/${currentHoliday.image}`;
+                imgElement.classList.add('holiday-img');
+                holidayListElement.appendChild(imgElement);
+
+                holidayCounter = (holidayCounter + 1) % holiday.length;
+            };
+
+            changeHolidayContent(); 
+
+            if (window.holidayTimer) {
+                clearInterval(window.holidayTimer);
+            }
+
+            window.holidayTimer = setInterval(() => {
+                changeHolidayContent();
+            }, 10000); 
+        }
+    }
+}
+
+// بررسی تعطیلات
+const holiday = monthHolidays.filter(h => h.day === dayCounter); 
+if (holiday.length > 0) {
+    el.classList.add('holiday'); 
+    
+    el.addEventListener('click', () => {
+        displayHolidays(jy, jm, dayCounter);
+    });
+}
+
+if (jy === today[0] && jm === today[1] && dayCounter === today[2]) {
+    el.classList.add('current');
+    displayHolidays(jy, jm, dayCounter);
+}
+
+        const taskExist = savedTasks.find(t => t.dayCounter === dayCounter && t.jy === jy && t.jm === jm);
+        if (taskExist) el.classList.add('todolist');
+
+        el.addEventListener('click', async () => {
+            const today = getTodayJalali();
+            const taskDateObj = new Date(jy, jm - 1, dayCounter);
+            const currentDate = new Date(today[0], today[1] - 1, today[2]);
+            
+            if (taskDateObj < currentDate) {
+                alert("نمی‌تونی توی روزهای گذشته تسک اضافه کنی!");
+                return;
+            }
+
+            const task = prompt("تسک امروز رو بنویس:");
+            if (task) {
+                toggleLoading(true);
+                const todayDate = `${toPersianDigits(dayCounter)} ${months[jm - 1]} ${toPersianDigits(jy)}`;
+                const newTask = { taskText: task, taskDate: todayDate, dayCounter, jy, jm, isSuccess: false };
+                await simulateAjaxDelay(); 
+                savedTasks.push(newTask);
+                localStorage.setItem('goalFlow', JSON.stringify(savedTasks));
+                addTaskToUI(newTask.taskText, newTask.taskDate, newTask.dayCounter, newTask.jy, newTask.jm, newTask.isSuccess);
+                el.classList.add('todolist');
+                toggleLoading(false);
+            }
+        });
+
+        calendarElement.appendChild(el);
+    }
+
+    let totalDisplayedDays = startDay + totalDays;
+    let nextMonthDay = 1;
+    while (totalDisplayedDays % 7 !== 0) {
+        const el = document.createElement('div');
+        el.classList.add('day', 'opacity-20', 'next-month');
+        el.textContent = toPersianDigits(nextMonthDay++);
+        calendarElement.appendChild(el);
+        totalDisplayedDays++;
+    }
+
+    calendarTitle.innerText = `${months[jm - 1]} ${toPersianDigits(jy)}`;
+    toggleLoading(false);
+    applyLazyLoading();
+}
+
+function isTaskExpired(taskDate) {
+    const taskDateParts = taskDate.split(' ');
+    const taskDay = parseInt(taskDateParts[0]);
+    const taskMonthName = taskDateParts[1];
+    const taskYear = parseInt(taskDateParts[2]);
+    const taskMonth = months.indexOf(taskMonthName) + 1;
+    const taskDateObj = new Date(taskYear, taskMonth - 1, taskDay);
+    const today = getTodayJalali();
+    const currentDate = new Date(today[0], today[1] - 1, today[2]);
+    return taskDateObj < currentDate;
+}
+
+function addTaskToUI(taskText, taskDate, dayCounter, jy, jm, isSuccess = false) {
+    const taskListElement = document.querySelector('.timeList .flex');
+    const taskItem = document.createElement('div');
+    taskItem.classList.add('task-item', 'relative', 'mb-3');
+    taskItem.innerHTML = `
+        <div class="icon w-12 h-12 flex items-center justify-center float-right rounded-full ml-4 bg-gray-200"></div>
+        <div class="title">
+            <div class="text-sm font-bold text-white">${taskText}</div>
+            <div class="time">
+                <time class="text-xs font-thin leading-7 text-white">${taskDate}</time>
+            </div>
+        </div>
+        <button class="delete-task absolute bottom-5 left-5 text-xs cursor-pointer opacity-30 hover:opacity-100 text-white" id="deletetask">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    `;
+    taskListElement.appendChild(taskItem);
+
+    if (isSuccess) {
+        taskItem.classList.add('opacity-20', 'task-success');
+    }
+    if (isTaskExpired(taskDate)) {
+        taskItem.classList.add('opacity-20', 'task-end');
+    }
+
+    taskItem.addEventListener('click', (e) => {
+        if (!e.target.closest('.delete-task')) {
+            taskItem.classList.add('opacity-20', 'task-success');
+            let savedTasks = JSON.parse(localStorage.getItem('goalFlow')) || [];
+            const taskIndex = savedTasks.findIndex(t => t.dayCounter === dayCounter && t.jy === jy && t.jm === jm && t.taskText === taskText);
+            if (taskIndex !== -1) {
+                savedTasks[taskIndex].isSuccess = true; // ذخیره وضعیت موفقیت
+                localStorage.setItem('goalFlow', JSON.stringify(savedTasks));
+            }
+        }
+    });
+
+    const deleteButton = taskItem.querySelector('.delete-task');
+    deleteButton.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        toggleLoading(true);
+        await simulateAjaxDelay(); 
+
+        taskItem.remove();
+
+        let savedTasks = JSON.parse(localStorage.getItem('goalFlow')) || [];
+        const updatedTasks = savedTasks.filter(t => !(t.dayCounter === dayCounter && t.jy === jy && t.jm === jm && t.taskText === taskText));
+        localStorage.setItem('goalFlow', JSON.stringify(updatedTasks));
+
+        const dayElement = calendarElement.querySelector(`.day:nth-child(${dayCounter + 7})`);
+        if (dayElement) {
+            const hasTasks = updatedTasks.some(t => t.dayCounter === dayCounter && t.jy === jy && t.jm === jm);
+            await simulateAjaxDelay(); 
+            if (!hasTasks) {
+                dayElement.classList.remove('todolist');
+            }
+        }
+        toggleLoading(false);
+    });
+
+    const taskDateParts = taskDate.split(' ');
+    const taskDay = parseInt(taskDateParts[0]);
+    const taskMonthName = taskDateParts[1];
+    const taskYear = parseInt(taskDateParts[2]);
+    const taskMonth = months.indexOf(taskMonthName) + 1;
+    const taskDateObj = new Date(taskYear, taskMonth - 1, taskDay);
+    const today = getTodayJalali();
+    const currentDate = new Date(today[0], today[1] - 1, today[2]);
+    if (taskDateObj < currentDate) {
+        taskItem.classList.add('opacity-20', 'task-end');
+    }
+}
+
+function loadTasksFromLocalStorage() {
+    const tasks = JSON.parse(localStorage.getItem('goalFlow')) || [];
+    const taskListElement = document.querySelector('.timeList .flex');
+    taskListElement.innerHTML = '';
+
+    tasks.forEach(task => {
+        addTaskToUI(task.taskText, task.taskDate, task.dayCounter, task.jy, task.jm, task.isSuccess || false);
+    });
+}
+
+function resetAllTasks() {
+    const confirmReset = confirm("مطمئنی می‌خوای همه تسک‌ها رو پاک کنی؟ اگه حذف کنی قابل بازگشت نیست!");
+    if (confirmReset) {
+        localStorage.removeItem('goalFlow');
+
+        const taskListElement = document.querySelector('.timeList .flex');
+        taskListElement.innerHTML = '';
+
+        const dayElements = document.querySelectorAll('.day.todolist');
+        dayElements.forEach(day => day.classList.remove('todolist'));
+
+        alert("همه تسک‌ها با موفقیت پاک شدن!");
+    } else {
+        alert("عملیات لغو شد.");
+    }
+}
+
+const resetButton = document.querySelector('.checkDone');
+resetButton.addEventListener('click', resetAllTasks);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const resetButton = document.querySelector('.checkDone');
+    resetButton.addEventListener('click', resetAllTasks);
+});
+
+document.getElementById('prev-month').addEventListener('click', async () => {
+    toggleLoading(true);
+    if (selectedMonth === 1) {
+        selectedMonth = 12;
+        selectedYear--;
+    } else selectedMonth--;
+    await simulateAjaxDelay(); 
+    await renderCalendar(selectedYear, selectedMonth);
+});
+
+document.getElementById('next-month').addEventListener('click', async () => {
+    toggleLoading(true);
+    if (selectedMonth === 12) {
+        selectedMonth = 1;
+        selectedYear++;
+    } else selectedMonth++;
+    await simulateAjaxDelay(); 
+    await renderCalendar(selectedYear, selectedMonth);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadTasksFromLocalStorage();
+});
+    </script>
+    <script>
+        fetch('/components/text.json')
+    .then(response => response.json())  
+    .then(data => {
+        const randomItem = data[Math.floor(Math.random() * data.length)];
+
+        const container = document.getElementById('quoteFrame');
+
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('quoteFrame', 'pulseLoop', 'relative', 'h-32', 'rounded-3xl', 'mr-10', 'ml-10', 'mb-9', 'backdrop-blur-lg');
+
+        itemElement.innerHTML = `
+            <div class="h-32 flex flex-row items-center">
+                <div class="basis-14">
+                    <div class="avatar relative float-right w-14 h-14 mt-2 mr-10 ml-4 rounded-full bg-gray-200">
+                        <img src="${randomItem.avatar}" class="w-14 h-14 max-w-full max-h-full object-cover rounded-full" />
+                        <span class="absolute -bottom-12 pt-2 pr-3 pl-3 pb-2 -right-4 rounded-xl text-center bg-black text-white">${randomItem.author}</span>
+                    </div>
+                </div>
+                <div class="content ml-6 pt-5">
+                    <h4 class="headling pb-3">
+                        <p class="paragraph text-sm font-light leading-8 text-white">
+                            ${randomItem.quote}
+                        </p>
+                    </h4>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(itemElement);
+    })
+    .catch(error => console.error('Error loading the JSON file:', error)); 
+    </script>
+    <script>
+        const apiKey = 'JALAQEH0Z4RC';
+const zone = 'Asia/Tehran';
+const url = `https://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}&format=json&by=zone&zone=${zone}`;
+
+const mainDiv = document.querySelector('.holidayy');
+const scene = document.querySelector('.animation');
+const timer = document.getElementById('timer');
+const countdown = document.getElementById('countdown');
+
+const targetDate = new Date('2025-03-20T12:31:30');
+
+const sun = document.createElement('div');
+sun.classList.add('sun');
+const moon = document.createElement('div');
+moon.classList.add('moon');
+
+let countdownInterval;
+let clockInterval;
+
+function toPersianNumber(number) {
+    const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+    return number.toString().replace(/\d/g, d => persianDigits[d]);
+}
+
+function updateClock(hour, minute, second) {
+    const persianHour = toPersianNumber(hour.toString().padStart(2, '0'));
+    const persianMinute = toPersianNumber(minute.toString().padStart(2, '0'));
+    const persianSecond = toPersianNumber(second.toString().padStart(2, '0'));
+
+    timer.innerText = `${persianHour}:${persianMinute}:${persianSecond}`;
+}
+
+function updateTheme(hour) {
+    mainDiv.classList.remove('holidayy', 'night-holiday');
+    if (hour >= 6 && hour < 18) {
+        mainDiv.classList.add('holidayy');
+        if (scene.contains(moon)) moon.remove();
+        if (!scene.contains(sun)) scene.appendChild(sun);
+    } else {
+        mainDiv.classList.add('night-holiday');
+        if (scene.contains(sun)) sun.remove();
+        if (!scene.contains(moon)) scene.appendChild(moon);
+    }
+}
+
+function fetchTimeAndRun() {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            let dateTime = new Date(data.formatted);
+            let h = dateTime.getHours();
+            let m = dateTime.getMinutes();
+            let s = dateTime.getSeconds();
+
+            updateTheme(h);
+            updateClock(h, m, s);
+        })
+        .catch(() => {
+            let now = new Date();
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+
+            updateTheme(h);
+            updateClock(h, m, s);
+        });
+}
+
+function startClock() {
+    fetchTimeAndRun(); 
+    clockInterval = setInterval(fetchTimeAndRun, 1000); 
+}
+
+function startCountdown() {
+    countdownInterval = setInterval(() => {
+        let now = new Date().getTime();
+        let distance = targetDate - now;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            countdown.innerText = "";
+            showFinishMessage();
+            return;
+        }
+
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        days = toPersianNumber(days);
+        hours = toPersianNumber(hours);
+        minutes = toPersianNumber(minutes);
+        seconds = toPersianNumber(seconds);
+
+        countdown.innerText = `${days} روز ${hours} ساعت ${minutes} دقیقه ${seconds} ثانیه`;
+    }, 1000);
+}
+
+function showFinishMessage() {
+    const msg = document.createElement('div');
+    msg.id = 'finish-msg';
+    msg.innerText = "سال نو مبارک 🎉";
+    mainDiv.appendChild(msg);
+    msg.style.display = 'block';
+}
+
+startClock();
+startCountdown();
+
+        </script>
 
 
 </body>
